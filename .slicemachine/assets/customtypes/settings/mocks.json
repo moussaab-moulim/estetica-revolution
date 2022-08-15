@@ -1,0 +1,64 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "settings",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "site_name": "kitchen",
+    "search_console_key": "arrangement",
+    "theme_color": "#25992b",
+    "logo": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+    },
+    "logo_invert": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
+    },
+    "favico": {
+      "dimensions": {
+        "width": 16,
+        "height": 16
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+      "md": {
+        "dimensions": {
+          "width": 32,
+          "height": 32
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869"
+      },
+      "lg": {
+        "dimensions": {
+          "width": 180,
+          "height": 180
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04"
+      }
+    },
+    "domain": "length"
+  }
+}

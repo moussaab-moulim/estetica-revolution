@@ -1,0 +1,20 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {}
+    ],
+    "primary": {
+      "quote": [
+        {
+          "type": "heading3",
+          "text": "Particles",
+          "spans": []
+        }
+      ],
+      "source": "finest"
+    },
+    "slice_type": "quote"
+  }
+]
