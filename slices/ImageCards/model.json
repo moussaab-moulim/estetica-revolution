@@ -17,7 +17,16 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1,heading2,heading3,strong,em"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "Text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },
@@ -27,8 +36,8 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 2200,
-              "height": 1200
+              "width": 480,
+              "height": 703
             },
             "thumbnails": []
           }
@@ -75,7 +84,16 @@
             "label": "Heading",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1,heading2,heading3,em,strong,heading4,heading5,heading6"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "Text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },
@@ -85,8 +103,8 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 2200,
-              "height": 1200
+              "width": 489,
+              "height": 703
             },
             "thumbnails": []
           }

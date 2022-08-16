@@ -77,6 +77,12 @@
               "patternType": "HEADING",
               "blocks": 1
             }
+          },
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
           }
         },
         "items": {}
@@ -84,6 +90,20 @@
       "imageCardsWithNoText": {
         "items": {
           "title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "primary": {
+          "heading": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "text": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1

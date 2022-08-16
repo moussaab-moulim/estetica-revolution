@@ -241,7 +241,16 @@
                     "label": "Heading",
                     "placeholder": "",
                     "allowTargetBlank": true,
-                    "multi": "heading1"
+                    "multi": "heading1,heading2,heading3,strong,em"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "Text",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   }
                 }
               },
@@ -251,8 +260,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 2200,
-                      "height": 1200
+                      "width": 480,
+                      "height": 703
                     },
                     "thumbnails": []
                   }
@@ -299,7 +308,16 @@
                     "label": "Heading",
                     "placeholder": "",
                     "allowTargetBlank": true,
-                    "multi": "heading1"
+                    "multi": "heading1,heading2,heading3,em,strong,heading4,heading5,heading6"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "Text",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   }
                 }
               },
@@ -309,8 +327,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 2200,
-                      "height": 1200
+                      "width": 489,
+                      "height": 703
                     },
                     "thumbnails": []
                   }
@@ -345,24 +363,24 @@
               {
                 "image": {
                   "dimensions": {
-                    "width": 2200,
-                    "height": 1200
+                    "width": 480,
+                    "height": 703
                   },
                   "alt": null,
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+                  "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613"
                 },
                 "title": [
                   {
                     "type": "paragraph",
-                    "text": "Proident exercitation sit laborum incididunt commodo culpa do velit ut. Ad proident anim mollit pariatur aliquip cillum Lorem aute cupidatat voluptate amet adipisicing nisi. Sint velit mollit do consectetur aute in in voluptate.",
+                    "text": "Pariatur est ad eiusmod. Commodo elit elit reprehenderit.",
                     "spans": []
                   }
                 ],
                 "text": [
                   {
                     "type": "paragraph",
-                    "text": "Occaecat minim qui nostrud aute ullamco ea velit qui eiusmod labore cillum.",
+                    "text": "Sunt commodo aliquip anim nostrud. Sunt enim non mollit tempor in proident ex deserunt ullamco amet commodo. Ut voluptate culpa duis Lorem.",
                     "spans": []
                   }
                 ],
@@ -376,7 +394,14 @@
               "heading": [
                 {
                   "type": "heading1",
-                  "text": "Where",
+                  "text": "Parts",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Ut do voluptate cupidatat eiusmod officia.",
                   "spans": []
                 }
               ]
@@ -390,17 +415,17 @@
               {
                 "image": {
                   "dimensions": {
-                    "width": 2200,
-                    "height": 1200
+                    "width": 489,
+                    "height": 703
                   },
                   "alt": null,
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da"
+                  "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea"
                 },
                 "title": [
                   {
                     "type": "paragraph",
-                    "text": "Elit incididunt est culpa minim nisi incididunt quis est adipisicing laborum occaecat aute mollit culpa consectetur.",
+                    "text": "In non Lorem ullamco ex dolor proident labore anim velit velit Lorem culpa. Ea dolor voluptate culpa officia. Esse proident eiusmod Lorem duis dolore incididunt.",
                     "spans": []
                   }
                 ],
@@ -414,7 +439,14 @@
               "heading": [
                 {
                   "type": "heading1",
-                  "text": "Newspaper",
+                  "text": "Enter",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Occaecat esse veniam commodo. Duis voluptate magna aliqua eiusmod et culpa est esse fugiat cillum eiusmod fugiat sunt.",
                   "spans": []
                 }
               ]

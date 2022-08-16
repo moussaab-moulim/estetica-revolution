@@ -2,7 +2,6 @@ import clsx from 'clsx';
 
 export const AutoContainer = ({
   as: Comp = 'div',
-
   collapsible = true,
   className,
   children,

@@ -242,6 +242,9 @@
 html {
   scroll-behavior: smooth;
 }
+a {
+  cursor: pointer;
+}
 button,
 a:hover,
 a:focus,

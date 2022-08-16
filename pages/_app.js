@@ -6,6 +6,7 @@ import { repositoryName, linkResolver } from '../prismicio';
 import { Heading } from '../components/Heading';
 
 import '../styles/globals.css';
+import '../styles/app.scss';
 
 const NextLinkShim = ({ href, children, locale, ...props }) => {
   return (
@@ -17,12 +18,12 @@ const NextLinkShim = ({ href, children, locale, ...props }) => {
 
 const richTextComponents = {
   heading1: ({ children }) => (
-    <Heading as='h1' className='mb-7 mt-12 first:mt-0 last:mb-0'>
+    <Heading as='h1' size='xl' className='mb-7 mt-12 first:mt-0 last:mb-0'>
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as='h2' size='md' className='mb-7 mt-12 first:mt-0 last:mb-0'>
+    <Heading as='h2' size='lg'>
       {children}
     </Heading>
   ),
@@ -31,7 +32,7 @@ const richTextComponents = {
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => <p className='mb-7 last:mb-0'>{children}</p>,
+  paragraph: ({ children }) => <p className='text'>{children}</p>,
   oList: ({ children }) => (
     <ol className='mb-7 pl-4 last:mb-0 md:pl-6'>{children}</ol>
   ),
