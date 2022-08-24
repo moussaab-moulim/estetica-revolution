@@ -1,6 +1,263 @@
 {
   "slices": {
     "components": {
+      "bmi_calculator": {
+        "library": "slices",
+        "id": "bmi_calculator",
+        "name": "BmiCalculator",
+        "description": "BmiCalculator",
+        "model": {
+          "id": "bmi_calculator",
+          "type": "SharedSlice",
+          "name": "BmiCalculator",
+          "description": "BmiCalculator",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "BmiCalculator",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,heading4,heading5,heading6,em,strong"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Function",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Ipsum nulla fugiat cillum ea consequat pariatur anim labore in quis. Et fugiat et sint commodo velit ipsum qui amet nisi exercitation. Labore do sit laboris ad eu incididunt eiusmod enim ad et officia eiusmod adipisicing mollit.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "bmi_calculator"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "counter": {
+        "library": "slices",
+        "id": "counter",
+        "name": "Counter",
+        "description": "Counter",
+        "model": {
+          "id": "counter",
+          "type": "SharedSlice",
+          "name": "Counter",
+          "description": "Counter",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Counter",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {
+                "number": {
+                  "type": "Number",
+                  "config": {
+                    "label": "number",
+                    "placeholder": ""
+                  }
+                },
+                "label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "label",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "number": 45,
+                "label": "graph"
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Drink",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Occaecat culpa ex do ipsum Lorem. Ullamco eu culpa velit tempor sunt quis sint ea ut et eu.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "counter"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "gallery": {
+        "library": "slices",
+        "id": "gallery",
+        "name": "Gallery",
+        "description": "Gallery",
+        "model": {
+          "id": "gallery",
+          "type": "SharedSlice",
+          "name": "Gallery",
+          "description": "Gallery",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Gallery",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                }
+              },
+              "items": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "image": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117"
+                }
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Opposite",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Ut id occaecat laboris cillum elit do pariatur mollit sint quis.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "gallery"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "hero": {
         "library": "slices",
         "id": "hero",
@@ -465,6 +722,150 @@
             "height": 1167
           }
         }
+      },
+      "pricing_packages": {
+        "library": "slices",
+        "id": "pricing_packages",
+        "name": "PricingPackages",
+        "description": "PricingPackages",
+        "model": {
+          "id": "pricing_packages",
+          "type": "SharedSlice",
+          "name": "PricingPackages",
+          "description": "PricingPackages",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "PricingPackages",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "title",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "list": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "list",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "price": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "price",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "buttonlabel": {
+                  "type": "Text",
+                  "config": {
+                    "label": "buttonLabel",
+                    "placeholder": ""
+                  }
+                },
+                "buttonlink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "buttonLink",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "title": [
+                  {
+                    "type": "paragraph",
+                    "text": "Ipsum enim commodo laborum est ut eu id laborum officia labore excepteur dolore irure elit aute. Tempor enim minim aute commodo ex ullamco ad nulla velit.",
+                    "spans": []
+                  }
+                ],
+                "list": [
+                  {
+                    "type": "paragraph",
+                    "text": "Consectetur amet elit duis laboris eiusmod ea laboris elit commodo ullamco cupidatat. Eu labore eiusmod labore.",
+                    "spans": []
+                  }
+                ],
+                "price": [
+                  {
+                    "type": "paragraph",
+                    "text": "Ex proident dolore laborum cupidatat reprehenderit proident et velit qui commodo tempor. Ea duis aliquip eu commodo fugiat. Sit esse pariatur deserunt.",
+                    "spans": []
+                  }
+                ],
+                "buttonlabel": "dear",
+                "buttonlink": {
+                  "link_type": "Web",
+                  "url": "http://google.com"
+                }
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Fourth",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Est voluptate ex laboris culpa pariatur dolor eiusmod adipisicing sunt Lorem. Dolore adipisicing voluptate laborum Lorem amet aliqua. Proident nulla et dolor ea.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "pricing_packages"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
       },
       "quote": {
         "library": "slices",

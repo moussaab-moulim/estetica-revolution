@@ -63,6 +63,18 @@
             },
             "text_with_image": {
               "type": "SharedSlice"
+            },
+            "counter": {
+              "type": "SharedSlice"
+            },
+            "bmi_calculator": {
+              "type": "SharedSlice"
+            },
+            "pricing_packages": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
             }
           }
         }

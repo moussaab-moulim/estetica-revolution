@@ -13,7 +13,8 @@ const nextConfig = async () => {
     reactStrictMode: true,
     basePath: '',
     i18n: {
-      locales: ['fr', 'en-us'],
+      localeDetection: false,
+      locales: ['fr', 'en'],
       defaultLocale: 'fr',
       // These are all the locales you want to support in
       // your application
