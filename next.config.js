@@ -14,7 +14,7 @@ const nextConfig = async () => {
     basePath: '',
     i18n: {
       localeDetection: false,
-      locales: ['fr', 'en'],
+      locales: ['fr'],
       defaultLocale: 'fr',
       // These are all the locales you want to support in
       // your application

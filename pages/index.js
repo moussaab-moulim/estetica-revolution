@@ -8,7 +8,6 @@ import { Layout } from '../components/Layout';
 import { mapPageSeo } from '../utils/mappers.ts';
 
 const Index = ({ page, navigation, settings }) => {
-  console.log('domain', settings.data);
   return (
     <Layout navigation={navigation} settings={mapPageSeo(page, settings)}>
       <SliceZone slices={page.data.slices} components={components} />
