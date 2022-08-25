@@ -62,6 +62,7 @@ export const Header = ({ navigation, logo, site_name }) => {
       setOpenSubmenu(index);
     }
   };
+  console.log('menu', menuOpen);
   return (
     <Fragment>
       <header className='absolute z-[99] m-0 w-full'>
