@@ -1,27 +1,53 @@
-import * as prismicH from "@prismicio/helpers";
-import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import * as prismicH from '@prismicio/helpers';
+import { PrismicRichText } from '@prismicio/react';
+import { PrismicNextImage } from '@prismicio/next';
 
-import { Bounded } from "../../components/Bounded";
+import { Bounded } from '../../components/Bounded';
+import { AutoContainer } from '../../components/Containers';
+import { Heading } from '../../components/Heading';
+const textComponent = {
+  heading2: ({ children, text, ...other }) => (
+    <Heading as='h2' className='title-box text-[40px]'>
+      {text.split('\n')[0]}
+      <br />
+      {text.split('\n')[1] && (
+        <span className='category'>{text.split('\n')[1]}</span>
+      )}
+      {console.log('text', text.split('\n'))}
+    </Heading>
+  ),
+};
 
 const TextWithImage = ({ slice }) => {
   const image = slice.primary.image;
-
+  {
+    console.log('slice.primary.title', slice.primary.title);
+  }
   return (
-    <Bounded as="section" className="bg-white">
-      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-        <div>
-          <PrismicRichText field={slice.primary.text} />
-        </div>
-        <div>
-          {prismicH.isFilled.image(image) && (
-            <div className="bg-gray-100">
-              <PrismicNextImage field={image} layout="responsive" />
+    <section className='sidebar-page-container'>
+      <AutoContainer>
+        <div className='trainer-detail'>
+          <div className='inner-box'>
+            <div className='clearfix flex flex-row'>
+              {/* Column */}
+              <div className='flex basis-full flex-col px-[15px] md:basis-1/2'>
+                <PrismicRichText
+                  field={slice.primary.title}
+                  components={textComponent}
+                />
+                <PrismicRichText field={slice.primary.text} />
+              </div>
+              {/* Column */}
+              <div className='flex basis-full flex-col px-[15px] md:basis-1/2'>
+                <div className='image'>
+                  <PrismicNextImage field={image} layout='responsive' />
+                </div>
+              </div>
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </Bounded>
+      </AutoContainer>
+    </section>
   );
 };
 

@@ -63,7 +63,8 @@
  ***/
 
 body {
-	font-family: 'MonumentExtended-Regular';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 	font-size:14px;
 	color:#777777;
 	line-height:1.7em;
@@ -95,7 +96,8 @@ h1,h2,h3,h4,h5,h6 {
 	margin:0px;
 	background:none;
 	line-height:1.6em;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 input,button,select,textarea{
@@ -1600,7 +1602,7 @@ body.visible-menu-bar .fullscreen-menu{
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
 }
 
 .fullscreen-menu .full-menu .navigation > li .dropdown-btn{
@@ -2975,15 +2977,16 @@ body.visible-menu-bar .fullscreen-menu{
 	transform:rotate(-90deg);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ffffff;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 	text-transform:uppercase;
-	transform-origin: 7% 20%;
+	transform-origin: 5% 20%;
 }
 
 .pricing-section .price-block:nth-child(2) .side-text{
-	left:0px;
+/* 	left:0px;
 	bottom:-3px;
-	transform-origin: 5% 0%;
+	transform-origin: 5% 0%; */
 }
 
 .price-block .inner-box{
@@ -3047,7 +3050,8 @@ body.visible-menu-bar .fullscreen-menu{
 	color:#ffffff;
 	margin-top:40px;
 	margin-bottom:20px;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .price-block .inner-box .price span{
@@ -3885,7 +3889,8 @@ body.visible-menu-bar .fullscreen-menu{
 	margin-top:14px;
 	letter-spacing:6px;
 	text-transform:uppercase;
-	font-family: 'MonumentExtended-Regular';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 }
 
 .main-footer .logo-widget{
@@ -4640,7 +4645,8 @@ body.visible-menu-bar .fullscreen-menu{
 	line-height:1em;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #e5e5e5;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .fluid-section-one .content-column h2{
@@ -4712,7 +4718,8 @@ body.visible-menu-bar .fullscreen-menu{
 	-o-transition:all 500ms ease;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #e5e5e5;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .fluid-section-one .content-column .gym-list li a:hover{
@@ -4745,7 +4752,8 @@ body.visible-menu-bar .fullscreen-menu{
 	color: transparent;
 	-webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #e5e5e5;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .fluid-section-two .outer-container{
@@ -4988,7 +4996,8 @@ body.visible-menu-bar .fullscreen-menu{
 	color:#000000;
 	opacity:0.10;
 	font-size:200px;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .fluid-section-three .content-column .theme-btn{
@@ -5167,7 +5176,8 @@ body.visible-menu-bar .fullscreen-menu{
     line-height: 1em;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #e5e5e5;
-    font-family: 'MonumentExtended-Ultrabold';
+    font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .accordion-box .block .acc-btn.active{
@@ -5681,7 +5691,8 @@ body.visible-menu-bar .fullscreen-menu{
 	margin-bottom:50px;
 	letter-spacing:4px;
 	text-transform:uppercase;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .comming-soon .content .content-inner h4 span{
@@ -5734,7 +5745,8 @@ body.visible-menu-bar .fullscreen-menu{
 	padding:10px 10px;
 	color:#ffffff;
 	letter-spacing:1px;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 /*** 
@@ -5788,7 +5800,8 @@ body.visible-menu-bar .fullscreen-menu{
     line-height: 1.3em;
 	padding-bottom:12px;
     text-transform: uppercase;
-	font-family: 'MonumentExtended-Regular';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 	border-bottom:1px solid rgba(255,255,255,0.10);
 }
 
@@ -5920,7 +5933,8 @@ body.visible-menu-bar .fullscreen-menu{
 	position:relative;
 	color:#ffffff;
 	line-height:1.1em;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .trainer-detail .inner-box .title-box .category{
@@ -5932,6 +5946,7 @@ body.visible-menu-bar .fullscreen-menu{
 	padding-bottom:25px;
 	border-bottom:1px solid #3d3d3d;
 	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
 }
 
 .trainer-detail .inner-box .title-box .category span{
@@ -5964,7 +5979,8 @@ body.visible-menu-bar .fullscreen-menu{
 	margin-top:70px;
 	margin-bottom:80px;
 	border-left:4px solid #ffffff;
-	font-family: 'MonumentExtended-Regular';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 }
 
 .trainer-detail .inner-box .post-share-options{
@@ -6155,7 +6171,8 @@ body.visible-menu-bar .fullscreen-menu{
     margin-top: 25px;
     margin-bottom: 40px;
     border-left: 4px solid #ffffff;
-    font-family: 'MonumentExtended-Regular';
+    font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 }
 
 .bodybuilder-detail .post-share-options{
@@ -6685,7 +6702,8 @@ body.visible-menu-bar .fullscreen-menu{
     margin-top: 75px;
     margin-bottom: 75px;
     border-left: 4px solid #ffffff;
-    font-family: 'MonumentExtended-Regular';
+    font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 }
 
 .blog-detail .post-share-options{
@@ -6797,7 +6815,8 @@ body.visible-menu-bar .fullscreen-menu{
 	font-weight:700;
 	line-height:1em;
 	margin-bottom:0px;
-	font-family: 'MonumentExtended-Ultrabold';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: 700;
 }
 
 .error-section .image{
@@ -7620,7 +7639,8 @@ body.visible-menu-bar .fullscreen-menu{
 	position:relative;
 	color:#ffffff;
 	margin-bottom:20px;
-	font-family: 'MonumentExtended-Regular';
+	font-family: "Monument Extended", sans-serif;
+	font-weight: normal;
 }
 
 /*** 

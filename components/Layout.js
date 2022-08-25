@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { Footer } from './Footer';
 import { Header } from './Header';
 
 export const Layout = ({ navigation, settings, children }) => {
@@ -143,6 +144,7 @@ export const Layout = ({ navigation, settings, children }) => {
         site_name={settings.site_name}
       />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };
