@@ -1,31 +1,85 @@
-import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import { css } from '@emotion/css';
+import clsx from 'clsx';
+import React, { useState } from 'react';
+import Carousel, { Modal, ModalGateway } from 'react-images';
 
-const Gallery = ({ slice }) => (
-  <section>
-    <span className="title">
-      {
-        slice.primary.title ?
-        <PrismicRichText field={slice.primary.title}/>
-        : <h2>Template slice, update me!</h2>
-      }
-    </span>
-    {
-      slice.primary.description ?
-      <PrismicRichText field={slice.primary.description}/>
-      : <p>start by editing this slice from inside Slice Machine!</p>
-    }
-    <style jsx>{`
-        section {
-          max-width: 600px;
-          margin: 4em auto;
-          text-align: center;
-        }
-        .title {
-          color: #8592e0;
-        }
-    `}</style>
-  </section>
-)
+import { AutoContainer } from '../../components/Containers';
+import { SectionTitle } from '../../components/Heading';
 
-export default Gallery
+const Gallery = ({ slice }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const openLightbox = (index) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
+  };
+
+  return (
+    <section
+      className={clsx(
+        'gallery-section',
+        css`
+          padding: 160px 0px 115px;
+        `
+      )}
+    >
+      <AutoContainer>
+        <SectionTitle
+          heading={slice.primary.title}
+          text={slice.primary.description}
+        />
+      </AutoContainer>
+      <div className='outer-container'>
+        <div className='clearfix flex flex-row flex-wrap justify-center'>
+          {/* Gallery Block */}
+          {slice.items.map((_item, index) => {
+            return (
+              <div className='gallery-block'>
+                <div className='inner-box'>
+                  <div className='image'>
+                    <img src={_item.image.url} alt={_item.image.alt} />
+                    <div
+                      className='overlay-link'
+                      onClick={() => openLightbox(index)}
+                    />
+                    {/* Overlay Box */}
+                    <div className='overlay-box'>
+                      <div className='overlay-inner'>
+                        <div className='content'>
+                          <div
+                            className='plus'
+                            onClick={() => openLightbox(index)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <ModalGateway>
+        {viewerIsOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel
+              currentIndex={currentImage}
+              views={slice.items.map((_item) => ({
+                alt: _item.image.alt,
+                source: _item.image.url,
+              }))}
+            />
+          </Modal>
+        ) : null}
+      </ModalGateway>
+    </section>
+  );
+};
+
+export default Gallery;

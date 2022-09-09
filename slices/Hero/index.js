@@ -8,7 +8,7 @@ import { Heading } from '../../components/Heading';
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
   paragraph: ({ children }) => (
-    <p className='font-size[16px] relative mt-[30px] mb-[40px] font-poppins font-normal leading-[1.8em] text-white opacity-50'>
+    <p className='relative mt-[30px] mb-[40px] font-poppins text-[16px] font-normal leading-[1.8em] text-white opacity-50'>
       {children}
     </p>
   ),

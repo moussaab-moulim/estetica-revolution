@@ -11,6 +11,15 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Quote",
       "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4,heading5,heading6,heading1,em,strong"
+          }
+        },
         "quote": {
           "type": "StructuredText",
           "config": {
@@ -28,7 +37,23 @@
           }
         }
       },
-      "items": {},
+      "items": {
+        "buttonlabel": {
+          "type": "Text",
+          "config": {
+            "label": "buttonLabel",
+            "placeholder": ""
+          }
+        },
+        "buttonlink": {
+          "type": "Link",
+          "config": {
+            "label": "buttonLink",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]

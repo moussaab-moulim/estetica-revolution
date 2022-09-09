@@ -1,9 +1,11 @@
+import { css } from '@emotion/css';
 import * as prismicH from '@prismicio/helpers';
-import { PrismicRichText, PrismicText } from '@prismicio/react';
+import { PrismicLink, PrismicRichText, PrismicText } from '@prismicio/react';
 import clsx from 'clsx';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 import { AutoContainer } from '../../components/Containers';
+import { SectionTitle } from '../../components/Heading';
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -18,6 +20,7 @@ const Quote = ({ slice }) => {
   return (
     <section className='relative px-0 pt-[160px] pb-[80px]'>
       <AutoContainer>
+        <SectionTitle heading={slice.primary.title} />
         <div className='relative py-0 px-[105px]'>
           <FaQuoteLeft
             className='absolute left-0 -top-[60px]'
@@ -45,6 +48,29 @@ const Quote = ({ slice }) => {
               )}
             </figure>
           )}
+        </div>
+        <div
+          className={clsx(
+            css`
+              width: 100%;
+              min-height: 1px;
+              padding-right: 15px;
+              padding-left: 15px;
+            `,
+            'col-lg-4 col-md-6 col-sm-12',
+            'mt-[20px] flex basis-full justify-center gap-3'
+          )}
+        >
+          {slice.items.map((_item) => (
+            <PrismicLink
+              field={slice.primary.buttonLink}
+              className={`theme-btn btn-style-one`}
+            >
+              <span className='txt'>
+                {slice.primary.buttonLabel || 'Learn More'}
+              </span>
+            </PrismicLink>
+          ))}
         </div>
       </AutoContainer>
     </section>

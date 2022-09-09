@@ -188,17 +188,19 @@
                 "title": {
                   "type": "StructuredText",
                   "config": {
-                    "single": "heading1",
                     "label": "Title",
-                    "placeholder": "This is where it all begins..."
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
                   }
                 },
                 "description": {
                   "type": "StructuredText",
                   "config": {
-                    "single": "paragraph",
                     "label": "Description",
-                    "placeholder": "A nice description of your feature"
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   }
                 }
               },
@@ -207,7 +209,10 @@
                   "type": "Image",
                   "config": {
                     "label": "image",
-                    "constraint": {},
+                    "constraint": {
+                      "width": 932,
+                      "height": 935
+                    },
                     "thumbnails": []
                   }
                 }
@@ -224,12 +229,12 @@
               {
                 "image": {
                   "dimensions": {
-                    "width": 900,
-                    "height": 500
+                    "width": 932,
+                    "height": 935
                   },
                   "alt": null,
                   "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117"
+                  "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
                 }
               }
             ],
@@ -237,14 +242,14 @@
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Opposite",
+                  "text": "Thrown",
                   "spans": []
                 }
               ],
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "Ut id occaecat laboris cillum elit do pariatur mollit sint quis.",
+                  "text": "Non velit culpa ullamco enim commodo elit dolore nulla duis incididunt dolor.",
                   "spans": []
                 }
               ]
@@ -919,6 +924,15 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "Quote",
               "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "title",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "heading2,heading3,heading4,heading5,heading6,heading1,em,strong"
+                  }
+                },
                 "quote": {
                   "type": "StructuredText",
                   "config": {
@@ -936,7 +950,23 @@
                   }
                 }
               },
-              "items": {},
+              "items": {
+                "buttonlabel": {
+                  "type": "Text",
+                  "config": {
+                    "label": "buttonLabel",
+                    "placeholder": ""
+                  }
+                },
+                "buttonlink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "buttonLink",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
@@ -946,17 +976,30 @@
             "variation": "default",
             "version": "sktwi1xtmkfgx8626",
             "items": [
-              {}
+              {
+                "buttonlabel": "may",
+                "buttonlink": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                }
+              }
             ],
             "primary": {
-              "quote": [
+              "title": [
                 {
-                  "type": "heading3",
-                  "text": "Particles",
+                  "type": "heading2",
+                  "text": "Valley",
                   "spans": []
                 }
               ],
-              "source": "finest"
+              "quote": [
+                {
+                  "type": "heading3",
+                  "text": "Hollow",
+                  "spans": []
+                }
+              ],
+              "source": "general"
             },
             "slice_type": "quote"
           }
