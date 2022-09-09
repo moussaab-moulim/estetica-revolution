@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { AutoContainer } from '../../components/Containers';
 import { SectionTitle } from '../../components/Heading';
 import { css } from '@emotion/css';
 import clsx from 'clsx';
+import { useContactPopup } from '../../components/ContactPopup/contactPopupContext';
 const FieldContainer = ({ className, children }) => (
   <div
     className={clsx(
@@ -22,6 +23,7 @@ const FieldContainer = ({ className, children }) => (
 );
 
 const BmiCalculator = ({ slice }) => {
+  const { openPopup } = useContactPopup();
   return (
     <section className='calculator-section'>
       <AutoContainer>
@@ -34,7 +36,7 @@ const BmiCalculator = ({ slice }) => {
           {/* Default Form */}
           <div className='default-form'>
             {/* Default Form */}
-            <form method='post' action='contact.html'>
+            <form>
               <div className='clearfix flex flex-row flex-wrap'>
                 <FieldContainer className='form-group basis-full md:basis-1/2 '>
                   <input
@@ -63,6 +65,7 @@ const BmiCalculator = ({ slice }) => {
                     className='theme-btn btn-style-one'
                     type='submit'
                     name='submit-form'
+                    onClick={openPopup}
                   >
                     <span className='txt'>CALCULATE</span>
                   </button>
