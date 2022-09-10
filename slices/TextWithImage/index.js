@@ -5,6 +5,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import { Bounded } from '../../components/Bounded';
 import { AutoContainer } from '../../components/Containers';
 import { Heading } from '../../components/Heading';
+import clsx from 'clsx';
 const textComponent = {
   heading2: ({ children, text, ...other }) => (
     <Heading as='h2' className='title-box text-[40px]'>
@@ -25,7 +26,14 @@ const TextWithImage = ({ slice }) => {
       <AutoContainer>
         <div className='trainer-detail'>
           <div className='inner-box'>
-            <div className='clearfix flex flex-row'>
+            <div
+              className={clsx(
+                'clearfix flex ',
+                slice.variation === 'rightText'
+                  ? 'flex-row-reverse'
+                  : 'flex-row'
+              )}
+            >
               {/* Column */}
               <div className='flex basis-full flex-col px-[15px] md:basis-1/2'>
                 <PrismicRichText

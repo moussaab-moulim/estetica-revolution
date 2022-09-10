@@ -8,6 +8,8 @@ import Image from './Image';
 import ImageCards from './ImageCards';
 import PricingPackages from './PricingPackages';
 import Quote from './Quote';
+import Reviews from './Reviews';
+import Sidebar from './Sidebar';
 import Text from './Text';
 import TextWithImage from './TextWithImage';
 
@@ -20,6 +22,8 @@ export {
 	ImageCards,
 	PricingPackages,
 	Quote,
+	Reviews,
+	Sidebar,
 	Text,
 	TextWithImage,
 };
@@ -33,6 +37,8 @@ export const components = {
 	image_cards: ImageCards,
 	pricing_packages: PricingPackages,
 	quote: Quote,
+	reviews: Reviews,
+	sidebar: Sidebar,
 	text: Text,
 	text_with_image: TextWithImage,
 };

@@ -8,7 +8,7 @@ function CustomButton(props) {
   const { field, text } = props;
   return (
     <ConditionalWrap
-      condition={field.url.includes('https://action:')}
+      condition={field?.url?.includes('https://action:')}
       wrap={({ children }) => (
         <div className={`theme-btn btn-style-one`} onClick={openPopup}>
           {children}

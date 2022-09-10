@@ -98,6 +98,9 @@
             }
           }
         }
+      },
+      "rightText": {
+        "primary": {}
       }
     },
     "ImageCards": {
@@ -233,6 +236,44 @@
             }
           },
           "price": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Sidebar": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Reviews": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "review": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1
