@@ -1319,8 +1319,8 @@
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             },
             {
-              "id": "withButton",
-              "name": "With Button",
+              "id": "rightText",
+              "name": "Right text",
               "docURL": "...",
               "version": "sktwi1xtmkfgx8626",
               "description": "TextWithImage",
@@ -1380,23 +1380,23 @@
               {}
             ],
             "primary": {
-              "slice_id": "shore",
+              "slice_id": "upon",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Nearest",
+                  "text": "Individual",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "heading1",
-                  "text": "History",
+                  "text": "Advice",
                   "spans": []
                 },
                 {
                   "type": "paragraph",
-                  "text": "Amet non tempor eiusmod cupidatat sunt. Do pariatur sunt aliqua qui tempor proident id. Consequat ullamco adipisicing mollit reprehenderit consequat sint mollit.",
+                  "text": "Eiusmod sint ea magna magna ad irure esse mollit et duis labore consequat esse ea deserunt. Aute sint nisi ullamco dolore duis irure mollit proident magna aute ipsum irure laborum veniam ut. Elit do elit nulla.",
                   "spans": []
                 }
               ],
@@ -1413,12 +1413,12 @@
                 "link_type": "Web",
                 "url": "https://prismic.io"
               },
-              "buttonlabel": "pot"
+              "buttonlabel": "higher"
             },
             "slice_type": "text_with_image"
           },
-          "withButton": {
-            "variation": "withButton",
+          "rightText": {
+            "variation": "rightText",
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {}
@@ -1427,14 +1427,14 @@
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Swing",
+                  "text": "Pleasure",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Ullamco qui aute occaecat mollit dolor proident ullamco velit.",
+                  "text": "Cupidatat velit id sunt magna eiusmod ut anim nostrud consequat id reprehenderit qui consectetur laborum occaecat. Ea fugiat mollit culpa nisi elit proident ea dolore sit culpa mollit.",
                   "spans": []
                 }
               ],
@@ -1442,7 +1442,7 @@
                 "link_type": "Web",
                 "url": "https://prismic.io"
               },
-              "buttonText": "positive",
+              "buttonText": "general",
               "image": {
                 "dimensions": {
                   "width": 900,
@@ -1450,7 +1450,7 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055"
+                "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
               }
             },
             "slice_type": "text_with_image"
@@ -1465,11 +1465,6 @@
             "path": "/Users/moussaabmma/Documents/GitHub/estetica-revolution/slices/TextWithImage/default/preview.jpeg",
             "width": 3024,
             "height": 2203
-          },
-          "withButton": {
-            "path": "/Users/moussaabmma/Documents/GitHub/estetica-revolution/.slicemachine/assets/slices/TextWithImage/withButton/preview.png",
-            "width": 800,
-            "height": 424
           }
         }
       }
