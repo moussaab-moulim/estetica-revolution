@@ -4,6 +4,12 @@ import { PrismicNextImage } from '@prismicio/next';
 
 import { Bounded } from '../../components/Bounded';
 import { Heading } from '../../components/Heading';
+import { ConditionalWrap } from '../../components/ConditionalWrap';
+import { useContactPopup } from '../../components/ContactPopup/contactPopupContext';
+import clsx from 'clsx';
+import { css } from '@emotion/css';
+import { linkResolver } from '../../prismicio';
+import CustomButton from '../../components/CustomButton';
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -15,24 +21,25 @@ const components = {
 };
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
-
+  console.log('slice.primary.buttonLink', slice.primary.buttonLink);
+  const { openPopup } = useContactPopup();
   return (
     <section
-      className='relative h-[957px] w-screen overflow-hidden before:absolute
-     before:left-0 before:bottom-0 before:right-0 before:z-[9] before:h-[120px]
-     before:w-full '
+      className={clsx(
+        'relative h-[957px] w-screen overflow-hidden before:absolute before:left-0 before:bottom-0 before:right-0 before:z-[9] before:h-[120px] before:w-full',
+        css`
+          &::before {
+            content: '';
+            background: linear-gradient(
+              to bottom,
+              rgba(34, 34, 34, 0) 0%,
+              rgba(0, 0, 0, 0.99) 99%,
+              rgba(0, 0, 0, 1) 100%
+            );
+          }
+        `
+      )}
     >
-      <style jsx>{`
-        ::before {
-          content: '';
-          background: linear-gradient(
-            to bottom,
-            rgba(34, 34, 34, 0) 0%,
-            rgba(0, 0, 0, 0.99) 99%,
-            rgba(0, 0, 0, 1) 100%
-          );
-        }
-      `}</style>
       {prismicH.isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
@@ -61,24 +68,10 @@ const Hero = ({ slice }) => {
               components={components}
               field={slice.primary.text}
             />
-            {prismicH.isFilled.link(slice.primary.buttonLink) && (
-              <PrismicLink
-                field={slice.primary.buttonLink}
-                className={`rounded-zero before: relative left-0 inline-block cursor-pointer 
-                overflow-hidden border-2 border-solid border-white/20 py-[14px] px-[46px]
-                font-poppins text-[16px] font-semibold uppercase text-white transition-all 
-                duration-300 ease-linear
-                before:absolute before:top-0 before:left-0
-                before:z-[1] before:h-full before:w-full before:scale-x-100
-                before:scale-y-50 before:bg-white before:opacity-0 before:transition-all 
-                before:duration-300 before:ease-linear hover:border-white hover:text-black 
-                hover:before:scale-y-100 hover:before:opacity-100`}
-              >
-                <span className='relative z-[1]'>
-                  {slice.primary.buttonText || 'Learn More'}
-                </span>
-              </PrismicLink>
-            )}
+            <CustomButton
+              field={slice.primary.buttonLink}
+              text={slice.primary.buttonText}
+            />
           </div>
         </div>
       </div>

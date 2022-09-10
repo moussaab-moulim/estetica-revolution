@@ -16,15 +16,19 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
  * @type {prismicH.LinkResolverFunction}
  */
 export const linkResolver = (doc) => {
-  const lang = doc.lang === 'fr' ? '' : `${doc.lang}`;
-
+  const lang = doc.lang === 'fr' ? '' : `/${doc.lang}`;
+  let url = lang + doc.url;
   if (doc.url === '/home') {
-    return '/' + lang;
-  } else {
-    return '/' + lang + doc.url;
+    url = '/';
   }
+  return url;
 };
 
+export const webLinkResolver = (doc) => {
+  if (doc.url.includes('https://action:')) return '';
+  if (doc.url.includes('#')) return doc.url.replace('https://', '');
+  return doc.url;
+};
 /**
  * Creates a Prismic client for the project's repository. The client is used to
  * query content from the Prismic API.

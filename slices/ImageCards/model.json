@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "ImageCards",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "heading": {
           "type": "StructuredText",
           "config": {

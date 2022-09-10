@@ -13,16 +13,13 @@ const textComponent = {
       {text.split('\n')[1] && (
         <span className='category'>{text.split('\n')[1]}</span>
       )}
-      {console.log('text', text.split('\n'))}
     </Heading>
   ),
 };
 
 const TextWithImage = ({ slice }) => {
   const image = slice.primary.image;
-  {
-    console.log('slice.primary.title', slice.primary.title);
-  }
+
   return (
     <section className='sidebar-page-container'>
       <AutoContainer>

@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "TextWithImage",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
@@ -38,6 +45,21 @@
               "height": 1200
             },
             "thumbnails": []
+          }
+        },
+        "buttonlink": {
+          "type": "Link",
+          "config": {
+            "label": "buttonLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "buttonlabel": {
+          "type": "Text",
+          "config": {
+            "label": "buttonLabel",
+            "placeholder": ""
           }
         }
       },

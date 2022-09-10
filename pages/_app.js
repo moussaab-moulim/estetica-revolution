@@ -7,6 +7,7 @@ import { Heading } from '../components/Heading';
 
 import '../styles/globals.css';
 import '../styles/app.scss';
+import { ContactPopupProvider } from '../components/ContactPopup/contactPopupContext';
 
 const NextLinkShim = ({ href, children, locale, ...props }) => {
   return (
@@ -71,7 +72,9 @@ export default function App({ Component, pageProps }) {
       richTextComponents={richTextComponents}
     >
       <PrismicPreview repositoryName={repositoryName}>
-        <Component {...pageProps} />
+        <ContactPopupProvider>
+          <Component {...pageProps} />
+        </ContactPopupProvider>
       </PrismicPreview>
     </PrismicProvider>
   );

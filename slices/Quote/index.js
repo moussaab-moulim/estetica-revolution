@@ -61,8 +61,9 @@ const Quote = ({ slice }) => {
             'mt-[20px] flex basis-full justify-center gap-3'
           )}
         >
-          {slice.items.map((_item) => (
+          {slice.items.map((_item, index) => (
             <PrismicLink
+              key={index}
               field={slice.primary.buttonLink}
               className={`theme-btn btn-style-one`}
             >

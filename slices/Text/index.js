@@ -2,17 +2,14 @@ import { PrismicRichText } from '@prismicio/react';
 import clsx from 'clsx';
 
 import { Bounded } from '../../components/Bounded';
+import { AutoContainer } from '../../components/Containers';
 
 const Text = ({ slice }) => {
   return (
-    <Bounded as='section' className='bg-white leading-relaxed'>
-      <div
-        className={clsx(
-          slice.variation === 'twoColumns' && 'md:columns-2 md:gap-6'
-        )}
-      >
+    <Bounded as='div' className='general-text-section relative'>
+      <AutoContainer className='inner-box'>
         <PrismicRichText field={slice.primary.text} />
-      </div>
+      </AutoContainer>
     </Bounded>
   );
 };

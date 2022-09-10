@@ -5,5 +5,5 @@ export default {
 }
 
 
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"buttonlabel":"may","buttonlink":{"link_type":"Web","url":"http://twitter.com"}}],"primary":{"title":[{"type":"heading2","text":"Valley","spans":[]}],"quote":[{"type":"heading3","text":"Hollow","spans":[]}],"source":"general"},"slice_type":"quote","id":"_Default"}} />
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"buttonlabel":"sing","buttonlink":{"link_type":"Web","url":"https://prismic.io"}}],"primary":{"slice_id":"boat","title":[{"type":"heading2","text":"Arrive","spans":[]}],"quote":[{"type":"heading3","text":"Related","spans":[]}],"source":"struck"},"slice_type":"quote","id":"_Default"}} />
 _Default.storyName = ''

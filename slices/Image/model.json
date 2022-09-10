@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Image",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "image": {
           "type": "Image",
           "config": {

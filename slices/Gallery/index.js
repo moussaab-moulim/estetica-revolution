@@ -39,7 +39,7 @@ const Gallery = ({ slice }) => {
           {/* Gallery Block */}
           {slice.items.map((_item, index) => {
             return (
-              <div className='gallery-block'>
+              <div key={index} className='gallery-block'>
                 <div className='inner-box'>
                   <div className='image'>
                     <img src={_item.image.url} alt={_item.image.alt} />

@@ -6,22 +6,23 @@
       {}
     ],
     "primary": {
+      "slice_id": "shore",
       "title": [
         {
           "type": "heading1",
-          "text": "Prize",
+          "text": "Nearest",
           "spans": []
         }
       ],
       "text": [
         {
           "type": "heading1",
-          "text": "Below",
+          "text": "History",
           "spans": []
         },
         {
           "type": "paragraph",
-          "text": "Minim ullamco duis nostrud aliquip dolore voluptate. Amet irure excepteur ex sint laboris cillum ad. Occaecat eiusmod cupidatat cupidatat.",
+          "text": "Amet non tempor eiusmod cupidatat sunt. Do pariatur sunt aliqua qui tempor proident id. Consequat ullamco adipisicing mollit reprehenderit consequat sint mollit.",
           "spans": []
         }
       ],
@@ -33,7 +34,12 @@
         "alt": null,
         "copyright": null,
         "url": "https://images.prismic.io/nextjs-starter-prismic-multi-page/fcb2333d-d2b2-4cdc-acdd-f9558703472d_anders-jilden-Sc5RKXLBjGg-unsplash.jpg"
-      }
+      },
+      "buttonlink": {
+        "link_type": "Web",
+        "url": "https://prismic.io"
+      },
+      "buttonlabel": "pot"
     },
     "slice_type": "text_with_image"
   },
@@ -47,22 +53,22 @@
       "title": [
         {
           "type": "heading1",
-          "text": "Occur",
+          "text": "Swing",
           "spans": []
         }
       ],
       "text": [
         {
           "type": "paragraph",
-          "text": "Consectetur laboris dolore cillum ullamco non laboris veniam. Esse nostrud enim aliquip nisi laboris qui ipsum est cupidatat eu dolor.",
+          "text": "Ullamco qui aute occaecat mollit dolor proident ullamco velit.",
           "spans": []
         }
       ],
       "buttonLink": {
         "link_type": "Web",
-        "url": "http://twitter.com"
+        "url": "https://prismic.io"
       },
-      "buttonText": "sudden",
+      "buttonText": "positive",
       "image": {
         "dimensions": {
           "width": 900,
@@ -70,7 +76,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
+        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055"
       }
     },
     "slice_type": "text_with_image"

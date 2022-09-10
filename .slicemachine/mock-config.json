@@ -8,6 +8,9 @@
               "patternType": "PARAGRAPH",
               "blocks": 1
             }
+          },
+          "title": {
+            "content": "main title"
           }
         }
       }
@@ -19,6 +22,16 @@
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 4
+            }
+          }
+        }
+      },
+      "twoColumns": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
             }
           }
         }

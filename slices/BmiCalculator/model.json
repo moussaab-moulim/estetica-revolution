@@ -11,13 +11,20 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "BmiCalculator",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "This is where it all begins...",
             "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,em,strong"
+            "multi": "heading2,heading3,heading4,heading5,heading6,strong,em"
           }
         },
         "description": {

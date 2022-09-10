@@ -5,5 +5,5 @@ export default {
 }
 
 
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"title":"cell","text":[{"type":"paragraph","text":"Incididunt nostrud est est reprehenderit nisi anim duis. Cillum aliquip consectetur ad sint cillum officia eiusmod consequat incididunt enim consectetur ex aliqua officia Lorem.","spans":[]}],"buttonLink":{"link_type":"Web","url":"http://twitter.com"},"buttonText":"slave","backgroundImage":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1593642532973-d31b6557fa68"}},"slice_type":"hero","id":"_Default"}} />
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"slice_id":"fewer","title":"main title","text":[{"type":"paragraph","text":"Do officia ad et Lorem in dolor. Esse id irure ullamco excepteur quis id est enim.","spans":[]}],"buttonLink":{"link_type":"Web","url":"https://slicemachine.dev"},"buttonText":"creature","backgroundImage":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"}},"slice_type":"hero","id":"_Default"}} />
 _Default.storyName = ''

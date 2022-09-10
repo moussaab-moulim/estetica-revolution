@@ -5,5 +5,5 @@ export default {
 }
 
 
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"image":{"dimensions":{"width":932,"height":935},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1560762484-813fc97650a0"}}],"primary":{"title":[{"type":"heading1","text":"Thrown","spans":[]}],"description":[{"type":"paragraph","text":"Non velit culpa ullamco enim commodo elit dolore nulla duis incididunt dolor.","spans":[]}]},"slice_type":"gallery","id":"_Default"}} />
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"image":{"dimensions":{"width":932,"height":935},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1545239351-1141bd82e8a6"}}],"primary":{"slice_id":"threw","title":[{"type":"heading1","text":"Another","spans":[]}],"description":[{"type":"paragraph","text":"Officia ullamco cupidatat sint pariatur anim.","spans":[]}]},"slice_type":"gallery","id":"_Default"}} />
 _Default.storyName = ''

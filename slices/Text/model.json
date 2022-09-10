@@ -11,13 +11,20 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Text",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
             "label": "Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item,preformatted,image,embed,heading4,heading5,heading6"
           }
         }
       },
@@ -31,13 +38,20 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Text",
       "primary": {
+        "slice_id": {
+          "type": "Text",
+          "config": {
+            "label": "slice id",
+            "placeholder": ""
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
             "label": "Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3,paragraph,em,strong,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item"
           }
         }
       },
