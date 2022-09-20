@@ -372,6 +372,41 @@
               },
               "items": {},
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            },
+            {
+              "id": "noActionHero",
+              "name": "No Action Hero",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Hero",
+              "primary": {
+                "slice_id": {
+                  "type": "Text",
+                  "config": {
+                    "label": "slice id",
+                    "placeholder": ""
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+                  }
+                },
+                "backgroundImage": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Background Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
         },
@@ -383,20 +418,20 @@
               {}
             ],
             "primary": {
-              "slice_id": "fewer",
+              "slice_id": "color",
               "title": "main title",
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Do officia ad et Lorem in dolor. Esse id irure ullamco excepteur quis id est enim.",
+                  "text": "Nisi eu ex magna dolore qui cupidatat id proident tempor enim veniam dolore. Amet ad in magna velit.",
                   "spans": []
                 }
               ],
               "buttonLink": {
                 "link_type": "Web",
-                "url": "https://slicemachine.dev"
+                "url": "https://prismic.io"
               },
-              "buttonText": "creature",
+              "buttonText": "fun",
               "backgroundImage": {
                 "dimensions": {
                   "width": 900,
@@ -404,7 +439,34 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"
+                "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              }
+            },
+            "slice_type": "hero"
+          },
+          "noActionHero": {
+            "variation": "noActionHero",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "slice_id": "arrive",
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Coach",
+                  "spans": []
+                }
+              ],
+              "backgroundImage": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da"
               }
             },
             "slice_type": "hero"
@@ -1039,6 +1101,13 @@
                     "label": "Source",
                     "placeholder": ""
                   }
+                },
+                "background_color": {
+                  "type": "Color",
+                  "config": {
+                    "label": "background color",
+                    "placeholder": ""
+                  }
                 }
               },
               "items": {
@@ -1068,30 +1137,31 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "buttonlabel": "sing",
+                "buttonlabel": "judge",
                 "buttonlink": {
                   "link_type": "Web",
-                  "url": "https://prismic.io"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
-              "slice_id": "boat",
+              "slice_id": "thee",
               "title": [
                 {
                   "type": "heading2",
-                  "text": "Arrive",
+                  "text": "Night",
                   "spans": []
                 }
               ],
               "quote": [
                 {
                   "type": "heading3",
-                  "text": "Related",
+                  "text": "Younger",
                   "spans": []
                 }
               ],
-              "source": "struck"
+              "source": "fallen",
+              "background_color": "#a07fc4"
             },
             "slice_type": "quote"
           }

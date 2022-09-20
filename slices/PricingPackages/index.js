@@ -18,18 +18,16 @@ const PricingPackages = ({ slice }) => (
         heading={slice.primary.title}
         text={slice.primary.description}
       />
-      <div className='clearfix flex flex-row flex-wrap'>
+      <div className='clearfix flex flex-row flex-wrap justify-center'>
         {/* Pricing Block */}
 
         {slice.items.map((item, index) => (
           <div
             key={index}
-            className='price-block col-lg-4 col-md-4 col-sm-12 basis-full px-[15px] md:basis-1/3 '
+            className={`price-block col-lg-4 col-md-4 col-sm-12 max-w-[100%] basis-full px-[15px] md:max-w-[${
+              slice.items.length < 3 ? 100 / slice.items.length : 33
+            }%] md:basis-1/${slice.items.length < 3 ? slice.items.length : 3}`}
           >
-            <Heading as='h3' className='side-text leading-[unset]'>
-              <PrismicText field={item.title} />
-            </Heading>
-
             <div
               className='inner-box wow fadeInLeft h-full'
               data-wow-delay='0ms'
@@ -42,6 +40,9 @@ const PricingPackages = ({ slice }) => (
                     layout='fixed'
                     height={70}
                   />
+                  <Heading as='h3' className='text-[22px]'>
+                    <PrismicText field={item.title} />
+                  </Heading>
                 </span>
               </div>
               <PrismicRichText field={item.list} components={listComponent} />

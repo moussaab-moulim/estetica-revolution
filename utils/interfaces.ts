@@ -16,4 +16,5 @@ export interface PageSeo {
   path: string;
   locale: string;
   type: string;
+  social_media: any;
 }

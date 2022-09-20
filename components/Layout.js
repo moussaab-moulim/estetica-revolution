@@ -1,13 +1,11 @@
 import { NextSeo } from 'next-seo';
 import ContactPopup from './ContactPopup/ContactPopup';
-import {
-  ContactPopupProvider,
-  useContactPopup,
-} from './ContactPopup/contactPopupContext';
+
 import { Footer } from './Footer';
 import { Header } from './Header';
 
 export const Layout = ({ navigation, settings, children }) => {
+  console.log('settings', settings);
   return (
     <div className='bg-black text-white'>
       <NextSeo
@@ -147,6 +145,7 @@ export const Layout = ({ navigation, settings, children }) => {
         navigation={navigation}
         logo={settings.logo}
         site_name={settings.site_name}
+        social_media={settings.social_media ?? []}
       />
       <main>{children}</main>
       <ContactPopup />

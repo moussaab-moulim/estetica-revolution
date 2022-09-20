@@ -9,19 +9,23 @@ import { SectionTitle } from '../../components/Heading';
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
-  paragraph: ({ children }) => (
-    <p className='font-[20px] relative text-center font-momentun font-normal leading-[1.6em]'>
-      {children}
-    </p>
-  ),
+  paragraph: ({ children }) => <p className='text text-center'>{children}</p>,
 };
 
 const Quote = ({ slice }) => {
+  console.log('items', slice.items);
   return (
-    <section className='relative px-0 pt-[160px] pb-[80px]'>
+    <section
+      className={clsx(
+        'testimonial-section',
+        css`
+          background-color: ${slice.primary.background_color};
+        `
+      )}
+    >
       <AutoContainer>
         <SectionTitle heading={slice.primary.title} />
-        <div className='relative py-0 px-[105px]'>
+        <div className='inner-container'>
           <FaQuoteLeft
             className='absolute left-0 -top-[60px]'
             size={70}
@@ -34,19 +38,14 @@ const Quote = ({ slice }) => {
           />
 
           {prismicH.isFilled.richText(slice.primary.quote) && (
-            <figure>
-              <blockquote>
+            <div className='testimonial-block'>
+              <div className='inner-box"'>
                 <PrismicRichText
                   field={slice.primary.quote}
                   components={components}
                 />
-              </blockquote>
-              {prismicH.isFilled.keyText(slice.primary.source) && (
-                <figcaption className='text-right'>
-                  &mdash; {slice.primary.source}
-                </figcaption>
-              )}
-            </figure>
+              </div>
+            </div>
           )}
         </div>
         <div
@@ -64,12 +63,10 @@ const Quote = ({ slice }) => {
           {slice.items.map((_item, index) => (
             <PrismicLink
               key={index}
-              field={slice.primary.buttonLink}
+              field={_item.buttonlink}
               className={`theme-btn btn-style-one`}
             >
-              <span className='txt'>
-                {slice.primary.buttonLabel || 'Learn More'}
-              </span>
+              <span className='txt'>{_item.buttonlabel || 'Learn More'}</span>
             </PrismicLink>
           ))}
         </div>

@@ -19,12 +19,12 @@ export const Footer = () => {
       <AutoContainer>
         {/* Widgets Section */}
         <div className='widgets-section'>
-          <div className='clearfix flex flex-row'>
+          <div className='clearfix flex flex-row flex-wrap '>
             {/* Big Column */}
-            <div className='big-column basis-full px-[15px]'>
-              <div className='clearfix flex flex-row justify-center'>
+            <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/2'>
+              <div className='clearfix flex flex-row flex-wrap '>
                 {/*Footer Column*/}
-                <div className='footer-column basis-full px-[15px] md:basis-1/2 lg:basis-1/3'>
+                <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
                   <div className='footer-widget logo-widget'>
                     <div className='logo'>
                       <a href='index.html'>
@@ -68,8 +68,9 @@ export const Footer = () => {
                     </ul>
                   </div>
                 </div>
+
                 {/*Footer Column*/}
-                <div className='footer-column  basis-full px-[15px] md:basis-1/2 lg:basis-1/3'>
+                <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
                   <div className='footer-widget news-widget'>
                     <h6>BLOG POSTS</h6>
                     <div className='widget-content'>
@@ -126,8 +127,14 @@ export const Footer = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Big Column */}
+            <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/2'>
+              <div className='clearfix now flex flex-row  flex-wrap'>
                 {/* Footer Column */}
-                <div className='footer-column  basis-full px-[15px] md:basis-1/2 lg:basis-1/3'>
+                <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
                   <div className='footer-widget gallery-widget'>
                     <h6>Instagram</h6>
                     <div className='widget-content'>
@@ -268,6 +275,40 @@ export const Footer = () => {
                           </a>
                         </figure>
                       </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/*Footer Column*/}
+                <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
+                  <div className='footer-widget newsletter-widget'>
+                    <h6>Newsletter</h6>
+                    <div className='text'>
+                      Estetica Revolution – fitness health center where your
+                      body gets its shape! Start training now to stay fit and
+                      healthy all year round!
+                    </div>
+                    {/* Newsletter Form */}
+                    <div className='newsletter-form'>
+                      <form method='post' action='contact.html'>
+                        <div className='form-group'>
+                          <input
+                            type='email'
+                            name='email'
+                            value=''
+                            placeholder='Email'
+                            required=''
+                          />
+                          <button
+                            type='submit'
+                            className='theme-btn submit-btn'
+                          >
+                            <span>
+                              <img src='images/icons/message-icon.png' alt='' />
+                            </span>
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>

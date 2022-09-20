@@ -13,6 +13,16 @@
             "content": "main title"
           }
         }
+      },
+      "noActionHero": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
       }
     },
     "Text": {
@@ -295,7 +305,9 @@
     "navigation": {
       "links": {}
     },
-    "settings": {},
+    "settings": {
+      "social_media": {}
+    },
     "navigation_extended": {}
   }
 }

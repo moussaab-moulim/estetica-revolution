@@ -4,30 +4,31 @@
     "version": "sktwi1xtmkfgx8626",
     "items": [
       {
-        "buttonlabel": "sing",
+        "buttonlabel": "judge",
         "buttonlink": {
           "link_type": "Web",
-          "url": "https://prismic.io"
+          "url": "https://slicemachine.dev"
         }
       }
     ],
     "primary": {
-      "slice_id": "boat",
+      "slice_id": "thee",
       "title": [
         {
           "type": "heading2",
-          "text": "Arrive",
+          "text": "Night",
           "spans": []
         }
       ],
       "quote": [
         {
           "type": "heading3",
-          "text": "Related",
+          "text": "Younger",
           "spans": []
         }
       ],
-      "source": "struck"
+      "source": "fallen",
+      "background_color": "#a07fc4"
     },
     "slice_type": "quote"
   }

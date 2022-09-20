@@ -71,6 +71,32 @@
           "placeholder": ""
         }
       }
+    },
+    "Contact": {
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "label": "social media",
+          "fields": {
+            "icon": {
+              "type": "Text",
+              "config": {
+                "label": "icon",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

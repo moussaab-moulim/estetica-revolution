@@ -12,11 +12,7 @@ export const Heading = ({
   return (
     <Comp
       className={clsx(
-        'font-momentun font-bold uppercase leading-[1em]',
-        size === 'xl' && 'text-[70px]',
-        size === 'lg' && 'text-[60px]',
-        size === 'md' && 'text-[24px]',
-        size === 'sm' && 'text-xl',
+        'font-momentun font-bold uppercase',
         css`
           em {
             -webkit-text-stroke-width: 1px;

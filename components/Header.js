@@ -5,8 +5,8 @@ import { Bounded } from './Bounded';
 import { PrismicNextImage } from '@prismicio/next';
 import { useMemo } from 'react';
 import { Fragment, useState } from 'react';
-
-export const Header = ({ navigation, logo, site_name }) => {
+import * as Icon from 'react-icons/fa';
+export const Header = ({ navigation, logo, site_name, social_media }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const links = useMemo(() => {
@@ -36,10 +36,10 @@ export const Header = ({ navigation, logo, site_name }) => {
       >
         <PrismicNextImage
           field={logo}
-          alt=''
           width={38.87}
           height={46}
-          layout='responsive'
+          layout='fill'
+          objectFit='contain'
         />
       </PrismicLink>
     ) : (
@@ -65,34 +65,36 @@ export const Header = ({ navigation, logo, site_name }) => {
 
   return (
     <Fragment>
-      <header className='absolute z-[99] m-0 w-full'>
+      <header className='main-header header-style-one'>
         <div className='header-upper'>
-          <div className='relative py-0 px-[60px]'>
-            <div className='relative'>
+          <div className='outer-container'>
+            <div className='inner-container clearfix'>
               {/* Logo Box */}
-              <div className='absolute left-2/4 inline-block -translate-x-2/4 py-5 px-0'>
-                <div className='relative w-[66px]'>{logoElement}</div>
+              <div className='logo-box'>
+                <div className='logo h-[78px]'>{logoElement}</div>
               </div>
 
               {/* Logo */}
-              <div className='float-left hidden'>{logoElement}</div>
+              <div className='mobile-logo pull-left'>{logoElement}</div>
 
-              {/* Header Social Box // TODO social icons */}
+              <div className='header-social-box clearfix'>
+                {social_media.map((_social, key) => {
+                  const SocialIcon = Icon[_social.icon];
+                  return (
+                    <PrismicLink key={key} field={_social.link}>
+                      <SocialIcon size={26} />
+                    </PrismicLink>
+                  );
+                })}
+              </div>
 
-              {/*  <div className='header-social-box clearfix'>
-              <a href='#' className='fa fa-facebook'></a>
-              <a href='#' className='fa fa-twitter'></a>
-              <a href='#' className='fa fa-instagram'></a>
-              <a href='#' className='fa fa-linkedin'></a>
-            </div> */}
-
-              <div className='outer-box clearfix relative float-right ml-0 px-0 pt-[55px] pb-[20px]'>
+              <div className='outer-box clearfix relative'>
                 {/* Hidden Nav Toggler */}
-                <div className='nav-toggler relative float-left'>
+                <div className='nav-toggler '>
                   <div className='nav-btn'>
                     <button
                       onClick={handleMenuOpen}
-                      className='hidden-bar-opener cursor-pointer bg-none font-poppins text-base font-semibold uppercase tracking-[1px] text-white'
+                      className='hidden-bar-opener'
                     >
                       Menu
                     </button>
@@ -101,34 +103,14 @@ export const Header = ({ navigation, logo, site_name }) => {
                 {/* / Hidden Nav Toggler */}
               </div>
 
-              <div className='nav-outer clearfix relative float-right'>
+              <div className='nav-outer clearfix'>
                 {/*Mobile Navigation Toggler
                  */}
-                <div className='mobile-nav-toggler relative float-right hidden cursor-pointer text-[36px] leading-[50px] text-white'>
+                <div className={`mobile-nav-toggler`} onClick={handleMenuOpen}>
                   <span className='icon'>
                     <HiOutlineMenuAlt3 color='#ffffff' size={28} />
                   </span>
                 </div>
-                {/* Main Menu  // TODO i cans see the function*/}
-                <nav className='main-menu navbar-expand-md relative float-left hidden transition-all duration-300 ease-linear md:flex-row md:flex-nowrap md:justify-start'>
-                  <div className='navbar-header'>
-                    {/* Toggle Button */}
-                    <button
-                      className='navbar-toggler hi'
-                      type='button'
-                      data-toggle='collapse'
-                      data-target='#navbarSupportedContent'
-                      aria-controls='navbarSupportedContent'
-                      aria-expanded='false'
-                      aria-label='Toggle navigation'
-                    >
-                      <span className='icon-bar'></span>
-                      <span className='icon-bar'></span>
-                      <span className='icon-bar'></span>
-                    </button>
-                  </div>
-                  {/*removed navbar-collapse collapse clearfix */}
-                </nav>
               </div>
             </div>
           </div>
@@ -165,6 +147,7 @@ export const Header = ({ navigation, logo, site_name }) => {
                       <PrismicLink
                         field={item.link}
                         className='relative inline-block cursor-pointer font-momentun text-[30px] font-bold uppercase text-white transition-all duration-300 ease-linear'
+                        onClick={handleMenuClose}
                       >
                         <PrismicText field={item.label} />
                       </PrismicLink>
@@ -197,6 +180,7 @@ export const Header = ({ navigation, logo, site_name }) => {
                               <PrismicLink
                                 field={_child.link}
                                 className='inline-block cursor-pointer font-poppins text-[16px] font-normal capitalize text-[#666666] transition-all duration-300 ease-linear hover:text-white'
+                                onClick={handleMenuClose}
                               >
                                 <PrismicText field={_child.label} />
                               </PrismicLink>

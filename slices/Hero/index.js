@@ -10,23 +10,31 @@ import clsx from 'clsx';
 import { css } from '@emotion/css';
 import { linkResolver } from '../../prismicio';
 import CustomButton from '../../components/CustomButton';
+import { AutoContainer } from '../../components/Containers';
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
-  paragraph: ({ children }) => (
-    <p className='relative mt-[30px] mb-[40px] font-poppins text-[16px] font-normal leading-[1.8em] text-white opacity-50'>
-      {children}
-    </p>
-  ),
+  paragraph: ({ children }) => <p className='text'>{children}</p>,
 };
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
-  console.log('slice.primary.buttonLink', slice.primary.buttonLink);
-  const { openPopup } = useContactPopup();
+
+  if (slice.variation === 'noActionHero') {
+    return (
+      <section
+        className='page-title'
+        style={{ backgroundImage: `url(${backgroundImage.url})` }}
+      >
+        <AutoContainer>
+          <PrismicRichText field={slice.primary.title} />
+        </AutoContainer>
+      </section>
+    );
+  }
   return (
     <section
       className={clsx(
-        'relative h-[957px] w-screen overflow-hidden before:absolute before:left-0 before:bottom-0 before:right-0 before:z-[9] before:h-[120px] before:w-full',
+        'banner-section',
         css`
           &::before {
             content: '';
@@ -40,40 +48,33 @@ const Hero = ({ slice }) => {
         `
       )}
     >
-      {prismicH.isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=''
-          layout='fill'
-          className='pointer-events-none select-none object-cover opacity-100'
+      <div className='slide'>
+        <div
+          className='image-layer'
+          style={{ backgroundImage: `url(${backgroundImage.url})` }}
         />
-      )}
-
-      <div className='relative bg-cover bg-center py-[300px]'>
-        <div className='static my-0 mx-auto max-w-[1200px] py-0 px-[15px]'>
-          <div className='relative text-center'>
-            <Heading
-              as='h1'
-              className='relative uppercase leading-[1em] md:text-[70px]'
-            >
-              <span className='outlined text-transparent'>
+        <AutoContainer>
+          <div className='content-boxed'>
+            <div className='inner-boxed'>
+              <Heading as='h1'>
                 {slice.primary.title.split(',')[0]}
-              </span>
-              <br />
-              <span className='text-white'>
-                {slice.primary.title.split(',')[1]}
-              </span>
-            </Heading>
-            <PrismicRichText
-              components={components}
-              field={slice.primary.text}
-            />
-            <CustomButton
-              field={slice.primary.buttonLink}
-              text={slice.primary.buttonText}
-            />
+
+                <br />
+                <span>{slice.primary.title.split(',')[1]}</span>
+              </Heading>
+              <PrismicRichText
+                components={components}
+                field={slice.primary.text}
+              />
+              <div className='btns-box'>
+                <CustomButton
+                  field={slice.primary.buttonLink}
+                  text={slice.primary.buttonText}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        </AutoContainer>
       </div>
     </section>
   );

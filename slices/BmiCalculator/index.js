@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { AutoContainer } from '../../components/Containers';
 import { SectionTitle } from '../../components/Heading';
 import { css } from '@emotion/css';
 import clsx from 'clsx';
 import { useContactPopup } from '../../components/ContactPopup/contactPopupContext';
+import { useForm, Controller } from 'react-hook-form';
+
 const FieldContainer = ({ className, children }) => (
   <div
     className={clsx(
@@ -23,7 +25,20 @@ const FieldContainer = ({ className, children }) => (
 );
 
 const BmiCalculator = ({ slice }) => {
+  const { handleSubmit, control } = useForm({
+    defaultValues: {
+      height: null,
+      weight: null,
+      age: null,
+    },
+  });
   const { openPopup } = useContactPopup();
+
+  const [bmi, setBmi] = useState(null);
+  const onSubmit = (data) => {
+    setBmi(((data.weight / data.height / data.height) * 10000).toFixed(2));
+  };
+
   return (
     <section className='calculator-section'>
       <AutoContainer>
@@ -36,42 +51,80 @@ const BmiCalculator = ({ slice }) => {
           {/* Default Form */}
           <div className='default-form'>
             {/* Default Form */}
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className='clearfix flex flex-row flex-wrap'>
-                <FieldContainer className='form-group basis-full md:basis-1/2 '>
-                  <input
-                    type='text'
-                    name='cm'
-                    placeholder='Height / Cm'
-                    required
+                <FieldContainer className='form-group basis-full md:basis-1/3 '>
+                  <Controller
+                    name='height'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <input type='text' placeholder='Height / Cm' {...field} />
+                    )}
                   />
                 </FieldContainer>
 
-                <FieldContainer className='form-group basis-full md:basis-1/2 '>
-                  <input
-                    type='text'
+                <FieldContainer className='form-group basis-full md:basis-1/3 '>
+                  <Controller
                     name='weight'
-                    placeholder='Weight / kg'
-                    required
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <input type='text' placeholder='Weight / kg' {...field} />
+                    )}
                   />
                 </FieldContainer>
 
-                <FieldContainer className='form-group basis-full md:basis-1/2 '>
-                  <input type='text' name='age' placeholder='Age' required />
-                </FieldContainer>
+                {/*  <FieldContainer className='form-group basis-full md:basis-1/2 '>
+                  <Controller
+                    name='age'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <input type='text' placeholder='Age' {...field} />
+                    )}
+                  />
+                </FieldContainer> */}
 
-                <FieldContainer className='form-group basis-full md:basis-1/2 '>
+                <FieldContainer className='form-group basis-full md:basis-1/3 '>
                   <button
                     className='theme-btn btn-style-one'
                     type='submit'
                     name='submit-form'
-                    onClick={openPopup}
                   >
                     <span className='txt'>CALCULATE</span>
                   </button>
                 </FieldContainer>
               </div>
             </form>
+
+            {bmi && (
+              <Fragment>
+                <div className='relative my-[80px] text-center'>
+                  Ton score est : {bmi}
+                </div>
+                <div className='clearfix flex flex-row flex-wrap'>
+                  <FieldContainer className='form-group basis-full md:basis-1/2 '>
+                    <button
+                      className='theme-btn btn-style-one'
+                      onClick={() => {
+                        setBmi(null);
+                      }}
+                    >
+                      <span className='txt'>Fermer</span>
+                    </button>
+                  </FieldContainer>
+                  <FieldContainer className='form-group basis-full md:basis-1/2 '>
+                    <button
+                      className='theme-btn btn-style-one'
+                      onClick={openPopup}
+                    >
+                      <span className='txt'>Consultation gratuite</span>
+                    </button>
+                  </FieldContainer>
+                </div>
+              </Fragment>
+            )}
 
             {/*End Default Form */}
           </div>

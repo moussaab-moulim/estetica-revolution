@@ -42,6 +42,13 @@
             "label": "Source",
             "placeholder": ""
           }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "background color",
+            "placeholder": ""
+          }
         }
       },
       "items": {

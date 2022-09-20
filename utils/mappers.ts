@@ -16,4 +16,5 @@ export const mapPageSeo = (page, settings): PageSeo => ({
   path: linkResolver(page),
   type: page.type === 'page' ? 'website' : 'article',
   locale: page.lang,
+  social_media: settings.data.social_media,
 });
