@@ -38,7 +38,7 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
           field={logo}
           width={38.87}
           height={46}
-          layout='fill'
+          layout='responsive'
           objectFit='contain'
         />
       </PrismicLink>
@@ -68,15 +68,7 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
       <header className='main-header header-style-one'>
         <div className='header-upper'>
           <div className='outer-container'>
-            <div className='inner-container clearfix'>
-              {/* Logo Box */}
-              <div className='logo-box'>
-                <div className='logo h-[78px]'>{logoElement}</div>
-              </div>
-
-              {/* Logo */}
-              <div className='mobile-logo pull-left'>{logoElement}</div>
-
+            <div className='inner-container flex items-center justify-between'>
               <div className='header-social-box clearfix'>
                 {social_media.map((_social, key) => {
                   const SocialIcon = Icon[_social.icon];
@@ -87,8 +79,12 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                   );
                 })}
               </div>
+              {/* Logo Box */}
+              <div className='logo-box !md:py-[20px] !py-[10px]'>
+                <div className='logo !w-[42px] md:!w-[60px]'>{logoElement}</div>
+              </div>
 
-              <div className='outer-box clearfix relative'>
+              <div className='outer-box relative'>
                 {/* Hidden Nav Toggler */}
                 <div className='nav-toggler '>
                   <div className='nav-btn'>
@@ -102,13 +98,12 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                 </div>
                 {/* / Hidden Nav Toggler */}
               </div>
-
               <div className='nav-outer clearfix'>
                 {/*Mobile Navigation Toggler
                  */}
                 <div className={`mobile-nav-toggler`} onClick={handleMenuOpen}>
                   <span className='icon'>
-                    <HiOutlineMenuAlt3 color='#ffffff' size={28} />
+                    <HiOutlineMenuAlt3 color='#ffffff' size={35} />
                   </span>
                 </div>
               </div>

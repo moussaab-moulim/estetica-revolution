@@ -57,7 +57,7 @@ const Quote = ({ slice }) => {
               padding-left: 15px;
             `,
             'col-lg-4 col-md-6 col-sm-12',
-            'mt-[20px] flex basis-full justify-center gap-3'
+            'mt-[20px] flex basis-full flex-wrap justify-center gap-3'
           )}
         >
           {slice.items.map((_item, index) => (

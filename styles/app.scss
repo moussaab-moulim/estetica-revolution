@@ -878,11 +878,7 @@ img{
 }
 
 .main-header .header-upper .logo-box{
-	position: absolute;
-	left:50%;
 	padding:20px 0px;
-	margin-left:-90px;
-	display:inline-block;
 }
 
 .main-header .header-upper .logo-box .logo{
@@ -1547,7 +1543,9 @@ img{
 
 ***/
 
-.nav-outer .mobile-nav-toggler{
+.nav-outer {
+	display: none;
+	.mobile-nav-toggler{
 	position: relative;
 	float: right;
 	font-size: 36px;
@@ -1555,7 +1553,7 @@ img{
 	cursor: pointer;
 	color:#ffffff;
 	display: none;
-}
+}}
 
 .mobile-menu{
 	position: fixed;
@@ -9933,15 +9931,17 @@ img{
 	
 	.main-header .nav-outer{
 		width:100%;
-		margin-top:-80px;
+		margin-top:0px;
 	}
 	
-	.nav-outer .mobile-nav-toggler{
+	.nav-outer {
+		display: block;
+		.mobile-nav-toggler{
 		display: block;
 		margin: 0;
 		padding: 8px 0;
 		margin-left: 20px;
-	}
+	}}
 	
 	#navbarSupportedContent{
 		display:block;
@@ -10252,8 +10252,7 @@ img{
 		display:inline-block;
 	}
 	
-	.testimonial-section-two .client-testimonial-carousel .owl-nav,
-	.main-header .header-upper .logo-box{
+	.testimonial-section-two .client-testimonial-carousel .owl-nav{
 		display:none;
 	}
 	

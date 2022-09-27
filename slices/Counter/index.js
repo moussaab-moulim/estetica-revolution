@@ -29,7 +29,7 @@ const NumberColumn = ({ item, parentSize, isInView }) => {
 
   return (
     <motion.div
-      className={`counter-column column  flex basis-full flex-col md:basis-1/${
+      className={`counter-column column flex  basis-full flex-col p-[10px] md:basis-1/${
         parentSize < 2 ? parentSize : 2
       } lg:basis-1/${parentSize < 4 ? parentSize : 4}`}
     >
@@ -68,7 +68,7 @@ const Counter = ({ slice }) => {
           animate={animation}
           className='fact-counter'
         >
-          <div className='clearfix flex flex-row'>
+          <div className='flex flex-row flex-wrap'>
             {slice.items.map((item, index) => {
               return (
                 <NumberColumn
