@@ -40,7 +40,14 @@ const BmiCalculator = ({ slice }) => {
   };
 
   return (
-    <section className='calculator-section'>
+    <section
+      className={clsx(
+        'calculator-section',
+        css`
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
+        `
+      )}
+    >
       <AutoContainer>
         <SectionTitle
           heading={slice.primary.title}

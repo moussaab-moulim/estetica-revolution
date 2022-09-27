@@ -25,6 +25,7 @@ const Gallery = ({ slice }) => {
         'gallery-section',
         css`
           padding: 160px 0px 115px;
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
         `
       )}
     >

@@ -13,13 +13,12 @@ const components = {
 };
 
 const Quote = ({ slice }) => {
-  console.log('items', slice.items);
   return (
     <section
       className={clsx(
         'testimonial-section',
         css`
-          background-color: ${slice.primary.background_color};
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
         `
       )}
     >

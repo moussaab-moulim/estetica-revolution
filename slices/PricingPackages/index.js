@@ -4,13 +4,20 @@ import { AutoContainer } from '../../components/Containers';
 import { Heading, SectionTitle } from '../../components/Heading';
 import { PrismicNextImage } from '@prismicio/next';
 import * as prismicH from '@prismicio/helpers';
+import clsx from 'clsx';
+import { css } from '@emotion/css';
 const listComponent = {
   list: ({ children }) => <ul className='price-list'>{children}</ul>,
   listItem: ({ children }) => <li className=''>{children}</li>,
 };
 const PricingPackages = ({ slice }) => (
   <section
-    className='pricing-section'
+    className={clsx(
+      'pricing-section',
+      css`
+        background-color: ${slice?.primary?.background_color ?? '#000000'};
+      `
+    )}
     style={{ backgroundImage: 'url(https://via.placeholder.com/1920x1092)' }}
   >
     <AutoContainer>

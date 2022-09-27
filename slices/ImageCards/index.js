@@ -163,7 +163,14 @@ const ImageCardNotext = ({ item }) => {
 
 const ImageCards = ({ slice }) => {
   return (
-    <section className='relative'>
+    <section
+      className={clsx(
+        'relative',
+        css`
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
+        `
+      )}
+    >
       {prismicH.isFilled.richText(slice.primary.heading) && (
         <AutoContainer>
           <SectionTitle

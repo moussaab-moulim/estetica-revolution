@@ -6,6 +6,7 @@ import { Bounded } from '../../components/Bounded';
 import { AutoContainer } from '../../components/Containers';
 import { Heading } from '../../components/Heading';
 import clsx from 'clsx';
+import { css } from '@emotion/css';
 const textComponent = {
   heading2: ({ children, text, ...other }) => (
     <Heading as='h2' className='title-box text-[40px]'>
@@ -22,7 +23,14 @@ const TextWithImage = ({ slice }) => {
   const image = slice.primary.image;
 
   return (
-    <section className='sidebar-page-container'>
+    <section
+      className={clsx(
+        'sidebar-page-container',
+        css`
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
+        `
+      )}
+    >
       <AutoContainer>
         <div className='trainer-detail'>
           <div className='inner-box'>

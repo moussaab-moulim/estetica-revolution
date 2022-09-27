@@ -158,8 +158,8 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                       <ul
                         className={`${
                           index === openSubmenu
-                            ? '  max-h-[500px] duration-1000 ease-linear'
-                            : '  max-h-0 duration-700 ease-linear'
+                            ? 'max-h-[500px] duration-1000 ease-linear'
+                            : 'max-h-0 duration-700 ease-linear'
                         } relative overflow-hidden transition-[max-height] `}
                       >
                         {item.childen.map((_child, childIndex) => (

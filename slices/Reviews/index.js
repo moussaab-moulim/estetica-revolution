@@ -1,9 +1,18 @@
 import React from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { AutoContainer } from '../../components/Containers';
+import clsx from 'clsx';
+import { css } from '@emotion/css';
 
 const Reviews = ({ slice }) => (
-  <section className='testimonial-section-two'>
+  <section
+    className={clsx(
+      'testimonial-section-two',
+      css`
+        background-color: ${slice?.primary?.background_color ?? '#000000'};
+      `
+    )}
+  >
     <AutoContainer>
       <SectionTitle
         heading={slice.primary.title}

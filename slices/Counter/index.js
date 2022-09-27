@@ -9,6 +9,8 @@ import {
   fadeInDown,
   motionParams,
 } from '../../utils/hooks/animations';
+import clsx from 'clsx';
+import { css } from '@emotion/css';
 
 const NumberColumn = ({ item, parentSize, isInView }) => {
   const ref = useRef(null);
@@ -53,7 +55,14 @@ const Counter = ({ slice }) => {
   const { ref, inView } = useInView();
   const animation = useAnimateInView(inView);
   return (
-    <section className='counter-section'>
+    <section
+      className={clsx(
+        'counter-section',
+        css`
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
+        `
+      )}
+    >
       <AutoContainer>
         <SectionTitle
           heading={slice.primary.title}
