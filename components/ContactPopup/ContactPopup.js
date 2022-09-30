@@ -1,10 +1,31 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { Fragment, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { useContactPopup } from './contactPopupContext';
-
+import { Step, Stepper } from 'react-form-stepper';
 function ContactPopup() {
   const { open, closePopup } = useContactPopup();
-
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      age: null,
+      height: null,
+      weight: null,
+      wantedWeight: null,
+      objectives: [],
+      name: null,
+      mail: null,
+      phone: null,
+      message: null,
+    },
+  });
+  const [step, setStep] = useState(1);
+  const onSubmit = (data) => {
+    setBmi(((data.weight / data.height / data.height) * 10000).toFixed(2));
+  };
   return (
     <div
       id='purchase-popup'
@@ -19,51 +40,354 @@ function ContactPopup() {
         <div className='purchase-form'>
           <div className='sec-title centered'>
             <h2>
-              <span>GET FREE</span> CONSULTATION
+              <span>Bilan</span> Personnalisé
             </h2>
             <div className='text'>
-              If you need of a Personal Trainer, Fitness Instructor advice, or a
-              healthy <br /> living product review, please feel free to contact
-              us
+              Ton rendez-vous est offert et sans engagement
             </div>
           </div>
 
-          <form method='post' action='contact.html'>
-            <div className='row clearfix'>
-              <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
-                <input type='text' name='name' placeholder='Name' required />
+          <form className='default-form' onSubmit={handleSubmit(onSubmit)}>
+            <div className='flex flex-col flex-nowrap'>
+              <Stepper activeStep={step - 1}>
+                <Step>1</Step>
+                <Step>2</Step>
+                <Step>3</Step>
+              </Stepper>
+
+              <div
+                className={clsx(
+                  step === 1 ? 'flex' : 'hidden',
+                  'flex-col flex-nowrap'
+                )}
+              >
+                <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
+                  <Controller
+                    name='age'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Age',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input type='number' placeholder='ÂGE :' {...field} />
+                    )}
+                  />
+                </div>
+                <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
+                  <Controller
+                    name='height'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Taille',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type='number'
+                        placeholder='TAILLE (CM) :'
+                        {...field}
+                      />
+                    )}
+                  />
+                </div>
+                <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
+                  <Controller
+                    name='weight'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Poids actuel',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type='number'
+                        placeholder='POIDS ACTUEL (KG) :'
+                        {...field}
+                      />
+                    )}
+                  />
+                </div>
+
+                <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
+                  <Controller
+                    name='wantedWeight'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Poids souhaité',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type='number'
+                        placeholder='POIDS SOUHAITÉ (KG) :'
+                        {...field}
+                      />
+                    )}
+                  />
+                </div>
               </div>
 
-              <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
-                <input type='email' name='email' placeholder='Email' required />
+              <div
+                className={clsx(
+                  step === 2 ? 'flex' : 'hidden',
+                  ' flex-col flex-nowrap'
+                )}
+              >
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Perte de poids'
+                          {...field}
+                        />{' '}
+                        Perte de poids
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Remise en forme'
+                          {...field}
+                        />{' '}
+                        Remise en forme
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Bien-être (cardio et renforcement)'
+                          {...field}
+                        />{' '}
+                        Bien-être (cardio et renforcement)
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Raison médicale'
+                          {...field}
+                        />{' '}
+                        Raison médicale
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Tonification et renforcement musculaire'
+                          {...field}
+                        />{' '}
+                        Tonification et renforcement musculaire
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Préparation physique et performances'
+                          {...field}
+                        />{' '}
+                        Préparation physique et performances
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input
+                          type='checkbox'
+                          value='Prise de masse'
+                          {...field}
+                        />{' '}
+                        Prise de masse
+                      </Fragment>
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='objectives'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <Fragment>
+                        <input type='checkbox' value='Autre' {...field} /> Autre
+                      </Fragment>
+                    )}
+                  />
+                </div>
               </div>
 
-              <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
-                <input
-                  type='text'
-                  name='subject'
-                  placeholder='Subject'
-                  required
-                />
-              </div>
+              <div
+                className={clsx(
+                  step === 3 ? 'flex' : 'hidden',
+                  ' flex-col flex-nowrap'
+                )}
+              >
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='name'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Nom',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input type='text' placeholder='NOM :' {...field} />
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='mail'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Adresse mail',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type='text'
+                        placeholder='ADRESSE MAIL :'
+                        {...field}
+                      />
+                    )}
+                  />
+                </div>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='phone'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Téléphone',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <input type='tel' placeholder='TÉLÉPHONE :' {...field} />
+                    )}
+                  />
+                </div>
 
-              <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
-                <textarea
-                  className='darma'
-                  name='message'
-                  placeholder='Your Message'
-                ></textarea>
+                <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
+                  <Controller
+                    name='message'
+                    control={control}
+                    rules={{
+                      required: {
+                        value: true,
+                        message: 'Veuillez remplir le champ :Message',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <textarea
+                        className='darma'
+                        placeholder='MESSAGE :'
+                        {...field}
+                      />
+                    )}
+                  />
+                </div>
               </div>
 
               <div className='form-group col-lg-12 col-md-12 col-sm-12 text-center'>
-                <span className='data'>* Personal data will be encrypted</span>
-                <button
-                  className='theme-btn btn-style-one'
-                  type='submit'
-                  name='submit-form'
-                >
-                  <span className='txt'>SEND MESSAGE</span>
-                </button>
+                {Object.values(errors).map((_error) => (
+                  <span className='font-poppins text-red-600'>
+                    {_error.message} <br />
+                  </span>
+                ))}
+
+                {console.log('errors', errors)}
+
+                {step > 1 && (
+                  <button
+                    className='theme-btn btn-style-one mb-3'
+                    name='submit-form'
+                    onClick={() => setStep(step - 1)}
+                  >
+                    <span className='txt'>Précédent</span>
+                  </button>
+                )}
+                {step < 3 && (
+                  <button
+                    className='theme-btn btn-style-one mb-3'
+                    name='submit-form'
+                    onClick={() => setStep(step + 1)}
+                  >
+                    <span className='txt'>Suivant</span>
+                  </button>
+                )}
+                {step === 3 && (
+                  <button
+                    className='theme-btn btn-style-one'
+                    type='submit'
+                    name='submit-form'
+                  >
+                    <span className='txt'>ENVOYER</span>
+                  </button>
+                )}
               </div>
             </div>
           </form>

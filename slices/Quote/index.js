@@ -19,6 +19,7 @@ const Quote = ({ slice }) => {
         'testimonial-section',
         css`
           background-color: ${slice?.primary?.background_color ?? '#000000'};
+          padding: 120px 0px 120px;
         `
       )}
     >

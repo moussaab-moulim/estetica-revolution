@@ -27,7 +27,13 @@ const Hero = ({ slice }) => {
         className='page-title'
         style={{ backgroundImage: `url(${backgroundImage.url})` }}
       >
-        <AutoContainer>
+        <AutoContainer
+          className={css`
+            h1 {
+              font-size: 40px;
+            }
+          `}
+        >
           <PrismicRichText field={slice.primary.title} />
         </AutoContainer>
       </section>

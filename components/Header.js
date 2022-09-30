@@ -141,7 +141,7 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                     {prismicH.isFilled.link(item.link) ? (
                       <PrismicLink
                         field={item.link}
-                        className='relative inline-block cursor-pointer font-momentun text-[30px] font-bold uppercase text-white transition-all duration-300 ease-linear'
+                        className='relative inline-block cursor-pointer font-momentun text-[20px] font-bold uppercase text-white transition-all duration-300 ease-linear md:text-[30px]'
                         onClick={handleMenuClose}
                       >
                         <PrismicText field={item.label} />
@@ -149,7 +149,7 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                     ) : (
                       <div
                         onClick={() => handleToggleSubmenu(index)}
-                        className='relative inline-block cursor-pointer font-momentun text-[30px] font-bold uppercase text-white transition-all duration-300 ease-linear'
+                        className='relative inline-block cursor-pointer font-momentun text-[20px] font-bold uppercase text-white transition-all duration-300 ease-linear md:text-[30px]'
                       >
                         <PrismicText field={item.label} />
                       </div>

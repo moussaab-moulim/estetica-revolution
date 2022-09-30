@@ -39,6 +39,18 @@ const BmiCalculator = ({ slice }) => {
     setBmi(((data.weight / data.height / data.height) * 10000).toFixed(2));
   };
 
+  const getScoreStatus = (currentScore) => {
+    if (currentScore <= 18.5) {
+      return 'Maigreur';
+    } else if (currentScore <= 24.9) {
+      return 'Normal';
+    } else if (currentScore <= 29.9) {
+      return 'Surpoids';
+    } else {
+      return 'obèse';
+    }
+  };
+
   return (
     <section
       className={clsx(
@@ -107,8 +119,22 @@ const BmiCalculator = ({ slice }) => {
 
             {bmi && (
               <Fragment>
-                <div className='relative my-[80px] text-center'>
-                  Ton score est : {bmi}
+                <div className='relative my-[20px] text-center'>
+                  Ton score est :<br />
+                  <strong>{bmi}</strong>
+                </div>
+                <div
+                  className={css`
+                    margin: 0 10px 80px 10px;
+                    text-align: justify;
+                    font-size: 15px;
+                    line-height: 2.1em;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                  `}
+                >
+                  Vous êtes :<br />
+                  <strong>{getScoreStatus(bmi)}</strong>
                 </div>
                 <div className='clearfix flex flex-row flex-wrap'>
                   <FieldContainer className='form-group basis-full md:basis-1/2 '>
