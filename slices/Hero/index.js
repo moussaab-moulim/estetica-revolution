@@ -20,7 +20,6 @@ const components = {
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
   const router = useRouter();
-  console.log('reouter', router);
   if (slice.variation === 'noActionHero') {
     return (
       <section
@@ -29,8 +28,10 @@ const Hero = ({ slice }) => {
       >
         <AutoContainer
           className={css`
-            h1 {
-              font-size: 40px;
+            @media only screen and (min-width: 600px) {
+              h1 {
+                font-size: 40px;
+              }
             }
           `}
         >

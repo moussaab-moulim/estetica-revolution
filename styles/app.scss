@@ -5706,30 +5706,37 @@ img {
 
 .sidebar-page-container {
   position: relative;
-  padding: 160px 0px 115px;
+  padding: 80px 0px 80px;
   background-color: #0c0c0c;
+  &.overflow-hidden {
+	overflow: hidden;
+	.sticky-top {
+		top: 0px;
+	  }
+  }
+
+  .content-side,.sidebar-side{
+	margin-bottom: 40px;
+  }
+
+  .sidebar-side{
+	.sidebar-inner{
+		&.padding-right {
+			padding-right: 30px;
+		  }
+		  &.padding-left {
+			padding-left: 30px;
+		  }
+	}
+  }
+
+  
 }
 
-.sidebar-page-container.overflow-hidden {
-  overflow: hidden;
-}
 
-.sidebar-page-container.overflow-hidden .sticky-top {
-  top: 0px;
-}
 
-.sidebar-page-container .content-side,
-.sidebar-page-container .sidebar-side {
-  margin-bottom: 40px;
-}
 
-.sidebar-page-container .sidebar-side .sidebar-inner.padding-right {
-  padding-right: 30px;
-}
 
-.sidebar-page-container .sidebar-side .sidebar-inner.padding-left {
-  padding-left: 30px;
-}
 
 .sticky-top {
   top: 90px;
@@ -5891,7 +5898,6 @@ img {
   font-size: 20px;
   margin-top: 20px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #3d3d3d;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
@@ -9329,7 +9335,7 @@ img {
   }
 
   h2 {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .gallery-section .gallery-block {
@@ -9571,7 +9577,7 @@ img {
   }
 
   .sidebar-page-container {
-    padding-top: 80px;
+    padding-top: 40px;
   }
 
   .blog-detail .inner-box .post-info,

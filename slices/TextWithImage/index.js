@@ -9,7 +9,16 @@ import clsx from 'clsx';
 import { css } from '@emotion/css';
 const textComponent = {
   heading2: ({ children, text, ...other }) => (
-    <Heading as='h2' className='title-box text-[40px]'>
+    <Heading
+      as='h2'
+      className={clsx(
+        'title-box',
+        css`
+          padding-bottom: 10px;
+          border-bottom: 1px solid #3d3d3d;
+        `
+      )}
+    >
       {text.split('\n')[0]}
       <br />
       {text.split('\n')[1] && (
@@ -33,10 +42,10 @@ const TextWithImage = ({ slice }) => {
     >
       <AutoContainer>
         <div className='trainer-detail'>
-          <div className='inner-box'>
+          <div className='inner-box !pb-0'>
             <div
               className={clsx(
-                'clearfix flex ',
+                'clearfix flex flex-wrap',
                 slice.variation === 'rightText'
                   ? 'flex-row-reverse'
                   : 'flex-row'
@@ -48,11 +57,14 @@ const TextWithImage = ({ slice }) => {
                   field={slice.primary.title}
                   components={textComponent}
                 />
+                <div className='image pb-3 md:hidden'>
+                  <PrismicNextImage field={image} layout='responsive' />
+                </div>
                 <PrismicRichText field={slice.primary.text} />
               </div>
               {/* Column */}
               <div className='flex basis-full flex-col px-[15px] md:basis-1/2'>
-                <div className='image'>
+                <div className='image hidden md:block'>
                   <PrismicNextImage field={image} layout='responsive' />
                 </div>
               </div>
