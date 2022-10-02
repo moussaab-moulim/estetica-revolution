@@ -1,14 +1,15 @@
 import { PrismicLink } from '@prismicio/react';
 import React from 'react';
 import { ConditionalWrap } from './ConditionalWrap';
-import { useContactPopup } from './ContactPopup/contactPopupContext';
+import { useContactPopup } from './Contact/contactPopupContext';
 
 function CustomButton(props) {
   const { openPopup } = useContactPopup();
   const { field, text } = props;
+
   return (
     <ConditionalWrap
-      condition={field?.url?.includes('https://action:')}
+      condition={field?.url?.includes('https://action:') || !field?.url}
       wrap={({ children }) => (
         <div className={`theme-btn btn-style-one`} onClick={openPopup}>
           {children}

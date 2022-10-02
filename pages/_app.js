@@ -7,7 +7,7 @@ import { Heading } from '../components/Heading';
 
 import '../styles/globals.css';
 import '../styles/app.scss';
-import { ContactPopupProvider } from '../components/ContactPopup/contactPopupContext';
+import { ContactPopupProvider } from '../components/Contact/contactPopupContext';
 
 const NextLinkShim = ({ href, children, locale, ...props }) => {
   return (

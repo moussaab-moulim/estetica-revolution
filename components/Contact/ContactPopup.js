@@ -16,15 +16,15 @@ function ContactPopup() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      age: null,
-      height: null,
-      weight: null,
-      wantedWeight: null,
+      age: '',
+      height: '',
+      weight: '',
+      wantedWeight: '',
       objectives: [],
-      name: null,
-      mail: null,
-      phone: null,
-      message: null,
+      name: '',
+      mail: '',
+      phone: '',
+      message: '',
     },
   });
   const [step, setStep] = useState(1);
@@ -309,7 +309,7 @@ function ContactPopup() {
                     }}
                     render={({ field }) => (
                       <input
-                        type='text'
+                        type='email'
                         placeholder='ADRESSE MAIL :'
                         {...field}
                       />
@@ -359,8 +359,6 @@ function ContactPopup() {
                     {_error.message} <br />
                   </span>
                 ))}
-
-                {console.log('errors', errors)}
 
                 {step > 1 && (
                   <button

@@ -4,7 +4,7 @@ import { AutoContainer } from '../../components/Containers';
 import { SectionTitle } from '../../components/Heading';
 import { css } from '@emotion/css';
 import clsx from 'clsx';
-import { useContactPopup } from '../../components/ContactPopup/contactPopupContext';
+import { useContactPopup } from '../../components/Contact/contactPopupContext';
 import { useForm, Controller } from 'react-hook-form';
 
 const FieldContainer = ({ className, children }) => (
@@ -27,9 +27,9 @@ const FieldContainer = ({ className, children }) => (
 const BmiCalculator = ({ slice }) => {
   const { handleSubmit, control } = useForm({
     defaultValues: {
-      height: null,
-      weight: null,
-      age: null,
+      height: '',
+      weight: '',
+      age: '',
     },
   });
   const { openPopup } = useContactPopup();

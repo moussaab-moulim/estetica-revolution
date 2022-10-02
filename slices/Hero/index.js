@@ -5,7 +5,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import { Bounded } from '../../components/Bounded';
 import { Heading } from '../../components/Heading';
 import { ConditionalWrap } from '../../components/ConditionalWrap';
-import { useContactPopup } from '../../components/ContactPopup/contactPopupContext';
+import { useContactPopup } from '../../components/Contact/contactPopupContext';
 import clsx from 'clsx';
 import { css } from '@emotion/css';
 import { linkResolver } from '../../prismicio';

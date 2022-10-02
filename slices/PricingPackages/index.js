@@ -6,6 +6,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import * as prismicH from '@prismicio/helpers';
 import clsx from 'clsx';
 import { css } from '@emotion/css';
+import CustomButton from '../../components/CustomButton';
 const listComponent = {
   list: ({ children }) => <ul className='price-list'>{children}</ul>,
   listItem: ({ children }) => <li className=''>{children}</li>,
@@ -15,10 +16,10 @@ const PricingPackages = ({ slice }) => (
     className={clsx(
       'pricing-section',
       css`
+        background-image: url(${slice?.primary?.background});
         background-color: ${slice?.primary?.background_color ?? '#000000'};
       `
     )}
-    style={{ backgroundImage: 'url(https://via.placeholder.com/1920x1092)' }}
   >
     <AutoContainer>
       <SectionTitle
@@ -60,9 +61,7 @@ const PricingPackages = ({ slice }) => (
                   <span>{prismicH.asText(item.price).split('/')[1]}</span>
                 )}
               </div>
-              <div className='theme-btn btn-style-one purchase-box-btn'>
-                <span className='txt'>PURCHASE NOW</span>
-              </div>
+              <CustomButton field={item.buttonlink} text={item.buttonlabel} />
             </div>
           </div>
         ))}
