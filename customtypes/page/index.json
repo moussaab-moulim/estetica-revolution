@@ -84,6 +84,9 @@
             },
             "gallery": {
               "type": "SharedSlice"
+            },
+            "reviews": {
+              "type": "SharedSlice"
             }
           }
         }

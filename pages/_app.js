@@ -47,9 +47,7 @@ const richTextComponents = {
     <li className='mb-1 list-disc pl-1 last:mb-0 md:pl-2'>{children}</li>
   ),
   preformatted: ({ children }) => (
-    <pre className='blockquote whitespace-pre-wrap'>
-      <code>{children}</code>
-    </pre>
+    <p className='blockquote whitespace-pre-wrap'>{children}</p>
   ),
   strong: ({ children }) => (
     <strong className='font-semibold'>{children}</strong>

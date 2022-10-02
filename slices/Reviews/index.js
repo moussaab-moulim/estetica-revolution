@@ -1,168 +1,167 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { AutoContainer } from '../../components/Containers';
 import clsx from 'clsx';
 import { css } from '@emotion/css';
+import { SectionTitle } from '../../components/Heading';
+import Carousel from 'nuka-carousel';
 
-const Reviews = ({ slice }) => (
-  <section
-    className={clsx(
-      'testimonial-section-two',
-      css`
-        background-color: ${slice?.primary?.background_color ?? '#000000'};
-      `
-    )}
-  >
-    <AutoContainer>
-      <SectionTitle
-        heading={slice.primary.title}
-        text={slice.primary.description}
-      />
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { PrismicNextImage } from '@prismicio/next';
+import { useResponsive } from '../../utils/hooks/responsive';
 
-      <div className='testimonial-outer'>
-        {/*Product Thumbs Carousel*/}
-        <div className='client-thumb-outer'>
-          <div className='client-thumbs-carousel owl-carousel owl-theme'>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
-            <div className='thumb-item'>
-              <figure className='thumb-box'>
-                <img src='https://via.placeholder.com/144x144' alt='' />
-              </figure>
-            </div>
+/** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
+const components = {
+  paragraph: ({ children }) => <p className='text'>{children}</p>,
+};
+
+const Reviews = ({ slice }) => {
+  console.log('items', slice.items);
+  const { isMobile } = useResponsive();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slides, setSlides] = useState(
+    slice.items.length > 4 ? 4 : slice.items.length
+  );
+  const handleSlideChange = (index, nextIndex) => {
+    console.log('next slide', nextIndex);
+    setCurrentSlide(nextIndex);
+  };
+  console.log(
+    'isMobile',
+    isMobile ? 1 : slice.items.length > 4 ? 4 : slice.items.length
+  );
+  useEffect(() => {
+    if (isMobile) {
+      setSlides(1);
+    } else {
+      setSlides(slice.items.length > 4 ? 4 : slice.items.length);
+    }
+  }, [isMobile]);
+  return (
+    <section
+      className={clsx(
+        'testimonial-section-two',
+        css`
+          background-color: ${slice?.primary?.background_color ?? '#000000'};
+        `
+      )}
+    >
+      <AutoContainer>
+        <SectionTitle
+          heading={slice.primary.title}
+          text={slice.primary.description}
+        />
+
+        <div className='testimonial-outer'>
+          {/*Product Thumbs Carousel*/}
+
+          <div className='client-thumb-outer'>
+            <Carousel
+              beforeSlide={handleSlideChange}
+              slideIndex={currentSlide}
+              className='client-thumbs-carousel'
+              slidesToShow={slides}
+              slidesToScroll={1}
+              wrapAround={slice.items.length > 1}
+              renderBottomCenterControls={({ currentSlide }) => null}
+              renderCenterLeftControls={({
+                previousDisabled,
+                previousSlide,
+              }) => (
+                <button
+                  className={css`
+                    opacity: 0.5;
+                    transform: translateX(-150%);
+                    transition: all 500ms ease;
+                    &:hover {
+                      opacity: 1;
+                    }
+
+                    @media only screen and (max-width: 767px) {
+                      transform: translateX(0%);
+                    }
+                  `}
+                  onClick={previousSlide}
+                  disabled={previousDisabled}
+                >
+                  <BsArrowLeft size={40} />
+                </button>
+              )}
+              renderCenterRightControls={({ nextDisabled, nextSlide }) => (
+                <button
+                  className={css`
+                    opacity: 0.5;
+                    transform: translateX(150%);
+                    transition: all 500ms ease;
+                    &:hover {
+                      opacity: 1;
+                    }
+                    @media only screen and (max-width: 767px) {
+                      transform: translateX(0%);
+                    }
+                  `}
+                  onClick={nextSlide}
+                  disabled={nextDisabled}
+                >
+                  <BsArrowRight size={40} />
+                </button>
+              )}
+            >
+              {slice.items.map((_item, key) => (
+                <div key={'key-' + key} className='thumb-item'>
+                  <figure className='thumb-box'>
+                    <PrismicNextImage field={_item.image} layout='responsive' />
+                  </figure>
+                </div>
+              ))}
+            </Carousel>
           </div>
+
+          {/* Client Testimonial Carousel */}
+          <Carousel
+            slideIndex={currentSlide}
+            className='client-testimonial-carousel'
+            slidesToShow={1}
+            slidesToScroll={1}
+            wrapAround={slice.items.length > 1}
+            withoutControls
+            beforeSlide={handleSlideChange}
+            onDragEnd={(e) => {
+              console.log('drag', e);
+            }}
+          >
+            {slice.items.map((_item, key) => (
+              <div key={key} className='testimonial-block-two'>
+                <div className='inner-box'>
+                  <FaQuoteLeft
+                    className='absolute left-0 top-0'
+                    size={70}
+                    color='rgba(255,255,255,0.07)'
+                  />
+                  <FaQuoteRight
+                    className='absolute right-0 top-0'
+                    size={70}
+                    color='rgba(255,255,255,0.07)'
+                  />
+                  <PrismicRichText
+                    field={_item.review}
+                    components={components}
+                  />
+                  <div className='author-info'>
+                    <div className='author-name'>{_item.name}</div>
+                    <div className='designation'>
+                      {_item.social_media_label}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Carousel>
         </div>
-
-        {/* Client Testimonial Carousel */}
-        <div className='client-testimonial-carousel owl-carousel owl-theme'>
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-
-          {/*Testimonial Block */}
-          <div className='testimonial-block-two'>
-            <div className='inner-box'>
-              <span className='quote-left flaticon-quote-3'></span>
-              <span className='quote-right flaticon-quote-4'></span>
-              <div className='text'>
-                “BLACKFIT’s 90 day challenge put me back in the gym on a
-                consistent basis. I eat clean and listen to the advice of coach
-                on every workout”
-              </div>
-              <div className='author-info'>
-                <div className='author-name'>Samantha Green</div>
-                <div className='designation'>CEO of Company</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </AutoContainer>
-  </section>
-);
+      </AutoContainer>
+    </section>
+  );
+};
 
 export default Reviews;

@@ -1,8 +1,13 @@
 import clsx from 'clsx';
+import dynamic from 'next/dynamic';
 import React, { Fragment, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useContactPopup } from './contactPopupContext';
-import { Step, Stepper } from 'react-form-stepper';
+
+const StepperComponent = dynamic(() => import('./CustomStepper'), {
+  ssr: false,
+});
+
 function ContactPopup() {
   const { open, closePopup } = useContactPopup();
   const {
@@ -49,11 +54,7 @@ function ContactPopup() {
 
           <form className='default-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col flex-nowrap'>
-              <Stepper activeStep={step - 1}>
-                <Step>1</Step>
-                <Step>2</Step>
-                <Step>3</Step>
-              </Stepper>
+              <StepperComponent activeStep={step - 1} />
 
               <div
                 className={clsx(

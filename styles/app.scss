@@ -3249,64 +3249,54 @@ img {
 
 .testimonial-section-two {
   position: relative;
-  padding: 160px 0px 160px;
+  padding: 80px 0px 80px;
+  .testimonial-outer {
+    position: relative;
+  }
+  .client-thumb-outer {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    .slide-current
+    .thumb-item
+    .thumb-box {
+    z-index: 999;
+    border-color: #ffffff;
+    img {
+      opacity: 1;
+    }
+  }
+  .thumb-item .thumb-box {
+    width: 144px;
+    height: 144px;
+    cursor: pointer;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #000000;
+    border: 2px solid transparent;
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+    img {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.5;
+    }
+  }
+  }
+  
 }
 
-.testimonial-section-two .testimonial-outer {
-  position: relative;
-}
 
-.testimonial-section-two .client-thumb-outer .owl-dots,
-.testimonial-section-two .client-thumb-outer .owl-nav {
-  display: none;
-}
 
-.testimonial-section-two .client-testimonial-carousel .owl-nav {
-  position: absolute;
-  left: 0px;
-  top: 0%;
-  z-index: 1;
-  width: 100%;
-  margin-top: -130px;
-  transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-}
 
-.testimonial-section-two .client-testimonial-carousel .owl-nav .owl-prev {
-  position: absolute;
-  left: 140px;
-  width: 60px;
-  height: 28px;
-  opacity: 0.5;
-  color: #ffffff;
-  font-size: 40px;
-  transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-}
 
-.testimonial-section-two .client-testimonial-carousel .owl-nav .owl-next {
-  position: absolute;
-  right: 140px;
-  width: 60px;
-  height: 28px;
-  opacity: 0.5;
-  transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-}
 
-.testimonial-section-two .client-testimonial-carousel .owl-nav .owl-prev:hover,
-.testimonial-section-two .client-testimonial-carousel .owl-nav .owl-next:hover {
-  opacity: 0.9;
-}
 
 /* Testimonial Block */
 
@@ -3369,83 +3359,6 @@ img {
   text-align: center;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
-}
-
-.testimonial-section-two .client-thumb-outer {
-  position: relative;
-  max-width: 640px;
-  overflow: hidden;
-  margin: 0 auto;
-  padding-bottom: 40px;
-}
-
-.testimonial-section-two
-  .client-thumb-outer
-  .owl-item.active
-  .thumb-item
-  .thumb-box {
-  z-index: 999;
-  border-color: #ffffff;
-}
-
-.testimonial-section-two
-  .client-thumb-outer
-  .owl-item.active
-  .thumb-item
-  .thumb-box
-  img {
-  opacity: 1;
-}
-
-.testimonial-section-two .client-thumb-outer .client-thumbs-carousel {
-  position: relative;
-  max-width: 144px;
-}
-
-.testimonial-section-two
-  .client-thumb-outer
-  .client-thumbs-carousel
-  .owl-stage-outer {
-  overflow: visible;
-}
-
-.testimonial-section-two .client-thumb-outer .thumb-item .thumb-box {
-  width: 144px;
-  height: 144px;
-  cursor: pointer;
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: #000000;
-  border: 2px solid transparent;
-  -webkit-transition: all 300ms ease;
-  -ms-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-
-.testimonial-section-two .client-thumb-outer .owl-item {
-  z-index: 0;
-}
-
-.testimonial-section-two .client-thumb-outer .owl-item.active {
-  z-index: 10;
-}
-
-.testimonial-section-two
-  .client-thumb-outer
-  .client-thumbs-carousel
-  .thumb-item
-  img {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  display: block;
-  opacity: 0.5;
-}
-
-.testimonial-section-two .owl-nav,
-.testimonial-section-two .owl-dots {
 }
 
 /*** 
@@ -5927,12 +5840,13 @@ img {
   position: relative;
   padding-left: 30px;
   color: #ffffff;
-  font-size: 20px;
+  opacity: 1;
   line-height: 1.4em;
   margin-top: 70px;
   margin-bottom: 80px;
   border-left: 4px solid #ffffff;
-  font-family: 'Monument Extended', sans-serif;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1.4em;
   font-weight: normal;
 }
 
@@ -6124,7 +6038,8 @@ img {
   margin-top: 25px;
   margin-bottom: 40px;
   border-left: 4px solid #ffffff;
-  font-family: 'Monument Extended', sans-serif;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
   font-weight: normal;
 }
 
@@ -6655,12 +6570,12 @@ img {
       position: relative;
       padding-left: 30px;
       color: #ffffff;
-      font-size: 20px;
       line-height: 1.4em;
       margin-top: 75px;
       margin-bottom: 75px;
       border-left: 4px solid #ffffff;
-      font-family: 'Monument Extended', sans-serif;
+	  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	  font-size: 1em;
       font-weight: normal;
     }
   }
