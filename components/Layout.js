@@ -1,11 +1,12 @@
 import { NextSeo } from 'next-seo';
+import ContactForm from './Contact/ContactForm';
 import ContactPopup from './Contact/ContactPopup';
-
+import { AutoContainer } from './Containers';
+import React, { Fragment } from 'react';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-export const Layout = ({ navigation, settings, children }) => {
-  console.log('settings', settings);
+export const Layout = ({ navigation, settings, instagramFeed, children }) => {
   return (
     <div className='bg-black text-white'>
       <NextSeo
@@ -134,9 +135,22 @@ export const Layout = ({ navigation, settings, children }) => {
         site_name={settings.site_name}
         social_media={settings.social_media ?? []}
       />
-      <main>{children}</main>
+      <main>
+        <Fragment>
+          {children}
+          <section>
+            <AutoContainer>
+              <ContactForm />
+            </AutoContainer>
+          </section>
+        </Fragment>
+      </main>
       <ContactPopup />
-      <Footer />
+      <Footer
+        logo={settings.logo}
+        contactDetails={settings.contact_content}
+        instagramFeed={instagramFeed}
+      />
     </div>
   );
 };

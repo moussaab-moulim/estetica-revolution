@@ -9,12 +9,6 @@ import { mapPageSeo } from '../utils/mappers.ts';
 const Page = ({ page, navigation, settings }) => {
   return (
     <Layout navigation={navigation} settings={mapPageSeo(page, settings)}>
-      <Head>
-        <title>
-          {prismicH.asText(page.data.title)} |{' '}
-          {prismicH.asText(settings.data.siteTitle)}
-        </title>
-      </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );

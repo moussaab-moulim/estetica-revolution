@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 import React, { Fragment, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { Heading } from '../Heading';
 import { useContactPopup } from './contactPopupContext';
 
@@ -11,6 +12,7 @@ function ContactForm() {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       name: '',
@@ -19,9 +21,29 @@ function ContactForm() {
     },
   });
   const [step, setStep] = useState(1);
-  const onSubmit = (data) => {
-    setBmi(((data.weight / data.height / data.height) * 10000).toFixed(2));
+  const onSubmit = async (data) => {
+    const body = {
+      mail: data.mail,
+      email: data.name,
+      message: data.message,
+    };
+    const contactResposne = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (contactResposne.status === 200) {
+      toast.success('Fomulaire envoyé avec success.\n');
+      reset();
+    } else {
+      toast.error("Echec d'envoi.");
+    }
   };
+
   return (
     <section id='contact' className='comment-form'>
       <div className='group-title text-center md:px-2'>

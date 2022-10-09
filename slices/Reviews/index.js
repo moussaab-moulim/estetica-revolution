@@ -17,20 +17,15 @@ const components = {
 };
 
 const Reviews = ({ slice }) => {
-  console.log('items', slice.items);
   const { isMobile } = useResponsive();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState(
     slice.items.length > 4 ? 4 : slice.items.length
   );
   const handleSlideChange = (index, nextIndex) => {
-    console.log('next slide', nextIndex);
     setCurrentSlide(nextIndex);
   };
-  console.log(
-    'isMobile',
-    isMobile ? 1 : slice.items.length > 4 ? 4 : slice.items.length
-  );
+
   useEffect(() => {
     if (isMobile) {
       setSlides(1);
@@ -127,9 +122,6 @@ const Reviews = ({ slice }) => {
             wrapAround={slice.items.length > 1}
             withoutControls
             beforeSlide={handleSlideChange}
-            onDragEnd={(e) => {
-              console.log('drag', e);
-            }}
           >
             {slice.items.map((_item, key) => (
               <div key={key} className='testimonial-block-two'>

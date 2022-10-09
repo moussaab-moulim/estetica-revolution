@@ -17,4 +17,5 @@ export const mapPageSeo = (page, settings): PageSeo => ({
   type: page.type === 'page' ? 'website' : 'article',
   locale: page.lang,
   social_media: settings.data.social_media,
+  contact_content: settings.data.contact_content ?? '',
 });

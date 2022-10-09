@@ -1,5 +1,9 @@
 import Link from 'next/link';
-import { PrismicLink, PrismicProvider } from '@prismicio/react';
+import {
+  PrismicLink,
+  PrismicProvider,
+  PrismicRichText,
+} from '@prismicio/react';
 import { PrismicPreview } from '@prismicio/next';
 
 import { repositoryName, linkResolver } from '../prismicio';
@@ -8,6 +12,8 @@ import { Heading } from '../components/Heading';
 import '../styles/globals.css';
 import '../styles/app.scss';
 import { ContactPopupProvider } from '../components/Contact/contactPopupContext';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const NextLinkShim = ({ href, children, locale, ...props }) => {
   return (
@@ -33,7 +39,11 @@ const richTextComponents = {
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => <p className='text'>{children}</p>,
+  paragraph: ({ children }) => (
+    <p className='text font-poppins text-[rgba(255,255,255,0.5)] '>
+      {children}
+    </p>
+  ),
   oList: ({ children }) => (
     <ol className='mb-7 pl-4 last:mb-0 md:pl-6'>{children}</ol>
   ),
@@ -55,7 +65,7 @@ const richTextComponents = {
   hyperlink: ({ children, node }) => (
     <PrismicLink
       field={node.data}
-      className='underline decoration-1 underline-offset-2'
+      className='font-bold text-white underline decoration-1 underline-offset-2'
     >
       {children}
     </PrismicLink>
@@ -72,6 +82,17 @@ export default function App({ Component, pageProps }) {
       <PrismicPreview repositoryName={repositoryName}>
         <ContactPopupProvider>
           <Component {...pageProps} />
+          <ToastContainer
+            position='bottom-center'
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            pauseOnHover
+            theme='colored'
+          />
         </ContactPopupProvider>
       </PrismicPreview>
     </PrismicProvider>

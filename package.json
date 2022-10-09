@@ -25,6 +25,7 @@
     "framer-motion": "^7.2.0",
     "next": "12.2.4",
     "next-seo": "^5.5.0",
+    "nodemailer": "^6.8.0",
     "nuka-carousel": "^5.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@prismicio/types": "^0.2.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@types/nodemailer": "^6.4.6",
     "autoprefixer": "^10.4.8",
     "concurrently": "^7.3.0",
     "eslint": "8.21.0",

@@ -306,7 +306,13 @@
       "links": {}
     },
     "settings": {
-      "social_media": {}
+      "social_media": {},
+      "contact_content": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
     },
     "navigation_extended": {}
   }

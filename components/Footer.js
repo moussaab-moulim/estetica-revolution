@@ -1,4 +1,4 @@
-import { PrismicLink, PrismicText } from '@prismicio/react';
+import { PrismicLink, PrismicRichText, PrismicText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import { Bounded } from './Bounded';
@@ -7,15 +7,13 @@ import { useMemo } from 'react';
 import { Fragment, useState } from 'react';
 import { AutoContainer } from './Containers';
 import ContactForm from './Contact/ContactForm';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export const Footer = () => {
+export const Footer = ({ logo, instagramFeed, contactDetails }) => {
+  console.log('images', instagramFeed);
   return (
     <Fragment>
-      <section>
-        <AutoContainer>
-          <ContactForm />
-        </AutoContainer>
-      </section>
       <footer
         className='main-footer'
         style={{
@@ -26,280 +24,85 @@ export const Footer = () => {
         <AutoContainer>
           {/* Widgets Section */}
           <div className='widgets-section'>
-            <div className='clearfix flex flex-row flex-wrap '>
+            <div className='clearfix flex flex-row flex-wrap items-center'>
               {/* Big Column */}
-              <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/2'>
-                <div className='clearfix flex flex-row flex-wrap '>
-                  {/*Footer Column*/}
-                  <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
-                    <div className='footer-widget logo-widget'>
-                      <div className='logo'>
-                        <a href='index.html'>
-                          <img
-                            src='https://via.placeholder.com/230x46'
-                            alt=''
-                          />
-                        </a>
-                      </div>
-                      {/* Footer Mobile Logo */}
-                      <div className='footer-mobile-logo'>
-                        <a href='index.html'>
-                          <img
-                            src='https://via.placeholder.com/180x78'
-                            alt=''
-                            title=''
-                          />
-                        </a>
-                      </div>
-                      <ul className='info-list'>
-                        <li>
-                          <span>Address:</span>4578 Marmora Road, Glasgow
-                        </li>
-                        <li>
-                          <span>Phones:</span>
-                          <a href='tel:1-123-456-78-89'>+1-123-456-78-89</a>
-                          <br />
-                          <a href='tel:1-123-456-78-80'>+1-123-456-78-80</a>
-                        </li>
-                        <li>
-                          <span>Working Hours:</span>Monday-Sunday: 07:00 -
-                          22:00
-                        </li>
-                        <li>
-                          <span>Email:</span>
-                          <a href='mailto:info@bigbear.com'>info@bigbear.com</a>
-                        </li>
-                        <li className='social-links'>
-                          <span>Our Socials:</span>
-                          <a href='#' className='fa fa-facebook'></a>
-                          <a href='#' className='fa fa-twitter'></a>
-                          <a href='#' className='fa fa-instagram'></a>
-                          <a href='#' className='fa fa-linkedin'></a>
-                        </li>
-                      </ul>
+              <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/3 '>
+                {/*Footer Column*/}
+                <div className='footer-widget logo-widget'>
+                  {prismicH.isFilled.image(logo) && (
+                    <div className='logo !w-[42px] md:!w-[60px]'>
+                      <PrismicLink
+                        href='/'
+                        className='block text-xl font-semibold tracking-tight'
+                      >
+                        <PrismicNextImage
+                          field={logo}
+                          width={38.87}
+                          height={46}
+                          layout='responsive'
+                          objectFit='contain'
+                        />
+                      </PrismicLink>
                     </div>
-                  </div>
-
-                  {/*Footer Column*/}
-                  <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
-                    <div className='footer-widget news-widget'>
-                      <h6>BLOG POSTS</h6>
-                      <div className='widget-content'>
-                        <div className='post'>
-                          <div className='thumb'>
-                            <a href='blog-single.html'>
-                              <img
-                                src='https://via.placeholder.com/85x85'
-                                alt=''
-                              />
-                            </a>
-                          </div>
-                          <h5>
-                            <a href='blog-single.html'>
-                              HOW TO MAXIMISE TIME SPENT AT THE GYM
-                            </a>
-                          </h5>
-                          <span className='date'>JUNE 21, 2020</span>
-                        </div>
-
-                        <div className='post'>
-                          <div className='thumb'>
-                            <a href='blog-single.html'>
-                              <img
-                                src='https://via.placeholder.com/85x85'
-                                alt=''
-                              />
-                            </a>
-                          </div>
-                          <h5>
-                            <a href='blog-single.html'>
-                              10 TIPS HOW TO PREPARE MEALS FAST AND EASY
-                            </a>
-                          </h5>
-                          <span className='date'>JUNE 21, 2020</span>
-                        </div>
-
-                        <div className='post'>
-                          <div className='thumb'>
-                            <a href='blog-single.html'>
-                              <img
-                                src='https://via.placeholder.com/85x85'
-                                alt=''
-                              />
-                            </a>
-                          </div>
-                          <h5>
-                            <a href='blog-single.html'>
-                              SIMPLE CONDITION FOR ALL AROUND FITNESS
-                            </a>
-                          </h5>
-                          <span className='date'>JUNE 21, 2020</span>
-                        </div>
-                      </div>
+                  )}
+                  {/* Footer Mobile Logo */}
+                  {prismicH.isFilled.image(logo) && (
+                    <div className='footer-mobile-logo'>
+                      <PrismicLink
+                        href='/'
+                        className='block text-xl font-semibold tracking-tight'
+                      >
+                        <PrismicNextImage
+                          field={logo}
+                          width={38.87}
+                          height={46}
+                          layout='responsive'
+                          objectFit='contain'
+                        />
+                      </PrismicLink>
                     </div>
+                  )}
+                  <div className='info-list'>
+                    <PrismicRichText field={contactDetails} />
                   </div>
                 </div>
               </div>
 
               {/* Big Column */}
-              <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/2'>
-                <div className='clearfix now flex flex-row  flex-wrap'>
-                  {/* Footer Column */}
-                  <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
-                    <div className='footer-widget gallery-widget'>
-                      <h6>Instagram</h6>
-                      <div className='widget-content'>
-                        <div className='images-outer clearfix'>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                          {/*Image Box*/}
-                          <figure className='image-box'>
-                            <a
-                              href='https://via.placeholder.com/320x320'
-                              className='lightbox-image'
-                              data-fancybox='footer-gallery'
-                              title='Image Title Here'
-                              data-fancybox-group='footer-gallery'
-                            >
-                              <img
-                                src='https://via.placeholder.com/80x80'
-                                alt=''
-                              />
-                            </a>
-                          </figure>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className='big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-2/3'>
+                {/* Footer Column */}
 
-                  {/*Footer Column*/}
-                  <div className='footer-column col-lg-6 col-md-6 col-sm-12 basis-full px-[15px] md:basis-1/2'>
-                    <div className='footer-widget newsletter-widget'>
-                      <h6>Newsletter</h6>
-                      <div className='text'>
-                        Estetica Revolution – fitness health center where your
-                        body gets its shape! Start training now to stay fit and
-                        healthy all year round!
+                <div className='footer-widget gallery-widget'>
+                  <h2 className='mb-5 text-[16px]'>Instagram</h2>
+                  <div className='widget-content'>
+                    {instagramFeed.length > 0 && (
+                      <div className='images-outer clearfix'>
+                        {/*Image Box*/}
+                        {instagramFeed.map((_image) => (
+                          <figure className='image-box basis-1/2 md:basis-1/4'>
+                            <Link
+                              href={_image.linkTo}
+                              passHref
+                              className='block text-xl font-semibold tracking-tight'
+                            >
+                              <a
+                                className='lightbox-image block text-xl font-semibold tracking-tight'
+                                target='_blank'
+                              >
+                                <Image
+                                  src={_image.url}
+                                  alt={_image.alt}
+                                  width={80}
+                                  height={80}
+                                  layout='responsive'
+                                  objectFit='cover'
+                                />
+                              </a>
+                            </Link>
+                          </figure>
+                        ))}
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>

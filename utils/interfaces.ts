@@ -17,4 +17,5 @@ export interface PageSeo {
   locale: string;
   type: string;
   social_media: any;
+  contact_content: string;
 }

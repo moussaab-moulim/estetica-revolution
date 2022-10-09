@@ -11,9 +11,9 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "site_name": "difficult",
-    "search_console_key": "spent",
-    "theme_color": "#c462af",
+    "site_name": "foot",
+    "search_console_key": "married",
+    "theme_color": "#7fcdcf",
     "logo": {
       "dimensions": {
         "width": 900,
@@ -21,7 +21,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
+      "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a"
     },
     "logo_invert": {
       "dimensions": {
@@ -30,7 +30,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+      "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a"
     },
     "favico": {
       "dimensions": {
@@ -39,7 +39,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
       "md": {
         "dimensions": {
           "width": 32,
@@ -47,7 +47,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+        "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e"
       },
       "lg": {
         "dimensions": {
@@ -56,18 +56,30 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+        "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869"
       }
     },
-    "domain": "battle",
+    "domain": "nine",
+    "instagram_api": "ago",
+    "email_server_login": "thy",
+    "email_server_password": "including",
     "social_media": [
       {
-        "icon": "north",
+        "icon": "alone",
         "link": {
           "link_type": "Web",
-          "url": "https://prismic.io"
+          "url": "https://slicemachine.dev"
         }
       }
-    ]
+    ],
+    "contact_content": [
+      {
+        "type": "paragraph",
+        "text": "Aute reprehenderit occaecat labore cillum irure nostrud magna minim fugiat anim. Consequat commodo adipisicing mollit in amet nostrud veniam nulla deserunt velit enim sint ipsum. Est dolor non esse est dolore.",
+        "spans": []
+      }
+    ],
+    "contact_from": "chicken",
+    "contact_to": "thread"
   }
 }
