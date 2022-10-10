@@ -20,12 +20,19 @@ function ContactForm() {
       message: '',
     },
   });
-  const [step, setStep] = useState(1);
   const onSubmit = async (data) => {
-    const body = {
-      mail: data.mail,
-      email: data.name,
-      message: data.message,
+    const mailData = {
+      //from: `estetica revolution <contact@fabiencarrichon.ch>`,
+      // to: 'moussaabmma@gmail.com',
+      subject: `Esteteticarevolition - Demande de contact`,
+      replyTo: data.mail,
+      text: data.message,
+      html: `
+        <div>
+          <p>name: ${data.name}</p>
+          <p>email: ${data.mail}</p>
+          <p>message: ${data.message}</p>
+        </div>`,
     };
     const contactResposne = await fetch('/api/contact', {
       method: 'POST',
@@ -33,7 +40,7 @@ function ContactForm() {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(mailData),
     });
 
     if (contactResposne.status === 200) {

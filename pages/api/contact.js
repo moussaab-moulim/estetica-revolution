@@ -13,21 +13,9 @@ const contactFunction = async (req, res) => {
       rejectUnauthorized: false,
     },
   });
-  const mailData = {
-    //from: `estetica revolution <contact@fabiencarrichon.ch>`,
-    // to: 'moussaabmma@gmail.com',
-    subject: `Demande de contact - ${req.body.subject}`,
-    replyTo: req.body.email,
-    text: req.body.message,
-    html: `
-      <div>
-        <p>name: ${req.body.name}</p>
-        <p>email: ${req.body.email}</p>
-        <p>message: ${req.body.message}</p>
-      </div>`,
-  };
+
   try {
-    const mailSendResp = await transporter.sendMail(mailData);
+    const mailSendResp = await transporter.sendMail(req.body);
     res.status(200).json(mailSendResp);
   } catch (error) {
     res.status(500).json(error);

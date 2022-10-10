@@ -1,20 +1,39 @@
+import { css } from '@emotion/css';
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 import React, { Fragment, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { useContactPopup } from './contactPopupContext';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 const StepperComponent = dynamic(() => import('./CustomStepper'), {
   ssr: false,
+});
+const schema = yup.object({
+  age: yup.string().nullable(false).required('Veuillez remplir ce champ'),
+  height: yup.string().nullable(false).required('Veuillez remplir ce champ'),
+  weight: yup.string().nullable(false).required('Veuillez remplir ce champ'),
+  wantedWeight: yup
+    .string()
+    .nullable(false)
+    .required('Veuillez remplir ce champ'),
+  objectives: yup.array(yup.string()),
+  name: yup.string().required('Veuillez remplir ce champ'),
+  mail: yup
+    .string()
+    .nullable(false)
+    .email('Format invalide')
+    .required('Veuillez remplir ce champ'),
+  phone: yup.string().nullable(false).required('Veuillez remplir ce champ'),
+  message: yup.string().nullable(true),
 });
 
 function ContactPopup() {
   const { open, closePopup } = useContactPopup();
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, control, formState, reset, watch } = useForm({
+    mode: 'all',
+    resolver: yupResolver(schema),
     defaultValues: {
       age: '',
       height: '',
@@ -28,9 +47,56 @@ function ContactPopup() {
     },
   });
   const [step, setStep] = useState(1);
-  const onSubmit = (data) => {
-    setBmi(((data.weight / data.height / data.height) * 10000).toFixed(2));
+  const onSubmit = async (data) => {
+    console.log(
+      'dqtq',
+      Object.entries(data.objectives)
+        .filter((_ob) => _ob[1] === true)
+        .map((val) => `<li>${val[0]}</li>`)
+    );
+    const mailData = {
+      //from: `estetica revolution <contact@fabiencarrichon.ch>`,
+      // to: 'moussaabmma@gmail.com',
+      subject: `Esteteticarevolition - Demande de contact`,
+      replyTo: data.mail,
+      text: data.message,
+      html: `
+        <div>
+          <p>nom: ${data.name}</p>
+          <p>email: ${data.mail}</p>
+          <p>téléphone: ${data.mail}</p>
+          <p>message: ${data.message}</p>
+          <p>age: ${data.age}</p>
+          <p>taille: ${data.height}</p>
+          <p>poids: ${data.weight}</p>
+          <p>poids souhaité: ${data.wantedWeight}</p>
+          <p>objectives: </p>
+          <ul>
+          ${Object.entries(data.objectives)
+            .filter((_ob) => _ob[1] === true)
+            .map((val) => `<li>${val[0]}</li>`)
+            .reduce((prev, next) => prev + next)}
+            </ul>
+        </div>`,
+    };
+    console.log('mail', mailData.html);
+    const contactResposne = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(mailData),
+    });
+
+    if (contactResposne.status === 200) {
+      toast.success('Fomulaire envoyé avec success.\n');
+      reset();
+    } else {
+      toast.error("Echec d'envoi.");
+    }
   };
+
   return (
     <div
       id='purchase-popup'
@@ -59,21 +125,32 @@ function ContactPopup() {
               <div
                 className={clsx(
                   step === 1 ? 'flex' : 'hidden',
-                  'flex-col flex-nowrap'
+                  'flex-col flex-nowrap',
+                  css`
+                    .error {
+                      border-color: rgb(220, 38, 38) !important;
+                    }
+                  `
                 )}
               >
                 <div className='col-lg-6 col-md-6 col-sm-12 form-group'>
                   <Controller
                     name='age'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Age',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input type='number' placeholder='ÂGE :' {...field} />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='number'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='ÂGE :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -81,18 +158,20 @@ function ContactPopup() {
                   <Controller
                     name='height'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Taille',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        type='number'
-                        placeholder='TAILLE (CM) :'
-                        {...field}
-                      />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='number'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='TAILLE (CM) :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -100,18 +179,20 @@ function ContactPopup() {
                   <Controller
                     name='weight'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Poids actuel',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        type='number'
-                        placeholder='POIDS ACTUEL (KG) :'
-                        {...field}
-                      />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='number'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='POIDS ACTUEL (KG) :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -120,18 +201,20 @@ function ContactPopup() {
                   <Controller
                     name='wantedWeight'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Poids souhaité',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        type='number'
-                        placeholder='POIDS SOUHAITÉ (KG) :'
-                        {...field}
-                      />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='number'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='POIDS SOUHAITÉ (KG) :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -145,9 +228,8 @@ function ContactPopup() {
               >
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Perte de poids'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -162,9 +244,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Remise en forme'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -179,9 +260,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Bien-être (cardio et renforcement)'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -196,16 +276,15 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Raison médicale'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
                           type='checkbox'
                           value='Raison médicale'
                           {...field}
-                        />{' '}
+                        />
                         Raison médicale
                       </Fragment>
                     )}
@@ -213,9 +292,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Tonification et renforcement musculaire'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -230,9 +308,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Préparation physique et performances'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -247,9 +324,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Prise de masse'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input
@@ -264,9 +340,8 @@ function ContactPopup() {
                 </div>
                 <div className='col-lg-12 col-md-12 col-sm-12 form-group'>
                   <Controller
-                    name='objectives'
+                    name='objectives.Autre'
                     control={control}
-                    rules={{ required: true }}
                     render={({ field }) => (
                       <Fragment>
                         <input type='checkbox' value='Autre' {...field} /> Autre
@@ -286,14 +361,20 @@ function ContactPopup() {
                   <Controller
                     name='name'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Nom',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input type='text' placeholder='NOM :' {...field} />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='text'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='NOM :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -301,18 +382,20 @@ function ContactPopup() {
                   <Controller
                     name='mail'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Adresse mail',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input
-                        type='email'
-                        placeholder='ADRESSE MAIL :'
-                        {...field}
-                      />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='email'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='ADRESSE MAIL :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -320,14 +403,20 @@ function ContactPopup() {
                   <Controller
                     name='phone'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Téléphone',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <input type='tel' placeholder='TÉLÉPHONE :' {...field} />
+                    render={({ field, fieldState }) => (
+                      <Fragment>
+                        <input
+                          type='tel'
+                          className={`${fieldState.error && 'error'}`}
+                          placeholder='TÉLÉPHONE :'
+                          {...field}
+                        />
+                        {fieldState.error && (
+                          <span className='font-poppins text-red-600'>
+                            {fieldState.error.message}
+                          </span>
+                        )}
+                      </Fragment>
                     )}
                   />
                 </div>
@@ -336,16 +425,10 @@ function ContactPopup() {
                   <Controller
                     name='message'
                     control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: 'Veuillez remplir le champ :Message',
-                      },
-                    }}
                     render={({ field }) => (
                       <textarea
                         className='darma'
-                        placeholder='MESSAGE :'
+                        placeholder='MESSAGE (Optionel):'
                         {...field}
                       />
                     )}
@@ -354,16 +437,10 @@ function ContactPopup() {
               </div>
 
               <div className='form-group col-lg-12 col-md-12 col-sm-12 text-center'>
-                {Object.values(errors).map((_error) => (
-                  <span className='font-poppins text-red-600'>
-                    {_error.message} <br />
-                  </span>
-                ))}
-
                 {step > 1 && (
                   <button
+                    disabled={formState.isSubmitting}
                     className='theme-btn btn-style-one mb-3'
-                    name='submit-form'
                     onClick={() => setStep(step - 1)}
                   >
                     <span className='txt'>Précédent</span>
@@ -372,7 +449,17 @@ function ContactPopup() {
                 {step < 3 && (
                   <button
                     className='theme-btn btn-style-one mb-3'
-                    name='submit-form'
+                    disabled={
+                      step === 1 &&
+                      (formState.errors.age ||
+                        formState.errors.height ||
+                        formState.errors.weight ||
+                        formState.errors.wantedWeight ||
+                        !formState.dirtyFields.age ||
+                        !formState.dirtyFields.height ||
+                        !formState.dirtyFields.weight ||
+                        !formState.dirtyFields.wantedWeight)
+                    }
                     onClick={() => setStep(step + 1)}
                   >
                     <span className='txt'>Suivant</span>
@@ -380,11 +467,14 @@ function ContactPopup() {
                 )}
                 {step === 3 && (
                   <button
+                    disabled={!formState.isValid || formState.isSubmitting}
                     className='theme-btn btn-style-one'
                     type='submit'
                     name='submit-form'
                   >
-                    <span className='txt'>ENVOYER</span>
+                    <span className='txt'>
+                      ENVOYER{console.log('formState', formState.isValid)}
+                    </span>
                   </button>
                 )}
               </div>
