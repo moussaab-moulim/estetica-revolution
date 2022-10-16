@@ -78,7 +78,7 @@ const BmiCalculator = ({ slice }) => {
                     control={control}
                     rules={{ required: true }}
                     render={({ field }) => (
-                      <input type='text' placeholder='Height / Cm' {...field} />
+                      <input type='text' placeholder='Taille / Cm' {...field} />
                     )}
                   />
                 </FieldContainer>
@@ -89,7 +89,7 @@ const BmiCalculator = ({ slice }) => {
                     control={control}
                     rules={{ required: true }}
                     render={({ field }) => (
-                      <input type='text' placeholder='Weight / kg' {...field} />
+                      <input type='text' placeholder='Poids / kg' {...field} />
                     )}
                   />
                 </FieldContainer>
@@ -111,7 +111,7 @@ const BmiCalculator = ({ slice }) => {
                     type='submit'
                     name='submit-form'
                   >
-                    <span className='txt'>CALCULATE</span>
+                    <span className='txt'>CALCULER</span>
                   </button>
                 </FieldContainer>
               </div>

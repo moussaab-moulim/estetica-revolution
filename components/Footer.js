@@ -74,11 +74,14 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                 <div className='footer-widget gallery-widget'>
                   <h2 className='mb-5 text-[16px]'>Instagram</h2>
                   <div className='widget-content'>
-                    {instagramFeed.length > 0 && (
+                    {instagramFeed?.length > 0 && (
                       <div className='images-outer clearfix'>
                         {/*Image Box*/}
-                        {instagramFeed.map((_image) => (
-                          <figure className='image-box basis-1/2 md:basis-1/4'>
+                        {instagramFeed.map((_image, i) => (
+                          <figure
+                            key={i}
+                            className='image-box basis-1/2 md:basis-1/4'
+                          >
                             <Link
                               href={_image.linkTo}
                               passHref
