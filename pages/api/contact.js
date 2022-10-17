@@ -5,8 +5,8 @@ const contactFunction = async (req, res) => {
     port: 465,
     host: 'mail.infomaniak.com',
     auth: {
-      // user: process.env.EMAIL_USER,
-      // pass: process.env.EMAIL_PASSWORD,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
     },
     secure: true,
     tls: {
@@ -18,6 +18,7 @@ const contactFunction = async (req, res) => {
     const mailSendResp = await transporter.sendMail(req.body);
     res.status(200).json(mailSendResp);
   } catch (error) {
+    console.log('err', error);
     res.status(500).json(error);
   }
 };

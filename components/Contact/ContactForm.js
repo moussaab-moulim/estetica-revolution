@@ -22,8 +22,8 @@ function ContactForm() {
   });
   const onSubmit = async (data) => {
     const mailData = {
-      //from: `estetica revolution <contact@fabiencarrichon.ch>`,
-      // to: 'moussaabmma@gmail.com',
+      from: `estetica revolution <postmaster@esteticarevolution.com>`,
+      to: 'info@esteticarevolution.com',
       subject: `Esteteticarevolition - Demande de contact`,
       replyTo: data.mail,
       text: data.message,

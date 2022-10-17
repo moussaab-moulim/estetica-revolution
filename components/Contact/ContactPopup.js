@@ -55,9 +55,9 @@ function ContactPopup() {
         .map((val) => `<li>${val[0]}</li>`)
     );
     const mailData = {
-      //from: `estetica revolution <contact@fabiencarrichon.ch>`,
-      // to: 'moussaabmma@gmail.com',
-      subject: `Esteteticarevolition - Demande de contact`,
+      from: `estetica revolution <postmaster@esteticarevolution.com>`,
+      to: 'info@esteticarevolution.com',
+      subject: `Esteteticarevolition - Demande bilan personnalisé`,
       replyTo: data.mail,
       text: data.message,
       html: `
