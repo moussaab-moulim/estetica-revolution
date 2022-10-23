@@ -55,7 +55,12 @@ export interface NavigationDocumentDataLinksItem {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type NavigationDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NavigationDocumentData>, "navigation", Lang>;
+export type NavigationDocument<Lang extends string = string> =
+    prismicT.PrismicDocumentWithoutUID<
+        Simplify<NavigationDocumentData>,
+        "navigation",
+        Lang
+    >;
 /** Content for Page documents */
 interface PageDocumentData {
     /**
@@ -96,7 +101,13 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone (`slices`)*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSlice | ImageCardsSlice | TextWithImageSlice;
+type PageDocumentDataSlicesSlice =
+    | HeroSlice
+    | QuoteSlice
+    | TextSlice
+    | ImageSlice
+    | ImageCardsSlice
+    | TextWithImageSlice;
 /**
  * Page document from Prismic
  *
@@ -106,7 +117,8 @@ type PageDocumentDataSlicesSlice = HeroSlice | QuoteSlice | TextSlice | ImageSli
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+export type PageDocument<Lang extends string = string> =
+    prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 /** Content for Settings documents */
 interface SettingsDocumentData {
     /**
@@ -130,8 +142,16 @@ interface SettingsDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = NavigationDocument | PageDocument | SettingsDocument;
+export type SettingsDocument<Lang extends string = string> =
+    prismicT.PrismicDocumentWithoutUID<
+        Simplify<SettingsDocumentData>,
+        "settings",
+        Lang
+    >;
+export type AllDocumentTypes =
+    | NavigationDocument
+    | PageDocument
+    | SettingsDocument;
 /**
  * Primary content in Hero → Primary
  *
@@ -186,7 +206,11 @@ interface HeroSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HeroSliceDefaultPrimary>, never>;
+export type HeroSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<HeroSliceDefaultPrimary>,
+    never
+>;
 /**
  * Slice variation for *Hero*
  *
@@ -225,7 +249,11 @@ interface ImageSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ImageSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ImageSliceDefaultPrimary>, never>;
+export type ImageSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<ImageSliceDefaultPrimary>,
+    never
+>;
 /**
  * Primary content in Image → Primary
  *
@@ -250,7 +278,11 @@ interface ImageSliceBannerPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ImageSliceBanner = prismicT.SharedSliceVariation<"banner", Simplify<ImageSliceBannerPrimary>, never>;
+export type ImageSliceBanner = prismicT.SharedSliceVariation<
+    "banner",
+    Simplify<ImageSliceBannerPrimary>,
+    never
+>;
 /**
  * Slice variation for *Image*
  *
@@ -335,7 +367,11 @@ export interface ImageCardsSliceDefaultItem {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ImageCardsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ImageCardsSliceDefaultPrimary>, Simplify<ImageCardsSliceDefaultItem>>;
+export type ImageCardsSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<ImageCardsSliceDefaultPrimary>,
+    Simplify<ImageCardsSliceDefaultItem>
+>;
 /**
  * Slice variation for *ImageCards*
  *
@@ -349,7 +385,10 @@ type ImageCardsSliceVariation = ImageCardsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ImageCardsSlice = prismicT.SharedSlice<"image_cards", ImageCardsSliceVariation>;
+export type ImageCardsSlice = prismicT.SharedSlice<
+    "image_cards",
+    ImageCardsSliceVariation
+>;
 /**
  * Primary content in Quote → Primary
  *
@@ -384,7 +423,11 @@ interface QuoteSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type QuoteSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<QuoteSliceDefaultPrimary>, never>;
+export type QuoteSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<QuoteSliceDefaultPrimary>,
+    never
+>;
 /**
  * Slice variation for *Quote*
  *
@@ -423,7 +466,11 @@ interface TextSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextSliceDefaultPrimary>, never>;
+export type TextSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<TextSliceDefaultPrimary>,
+    never
+>;
 /**
  * Primary content in Text → Primary
  *
@@ -448,7 +495,11 @@ interface TextSliceTwoColumnsPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextSliceTwoColumns = prismicT.SharedSliceVariation<"twoColumns", Simplify<TextSliceTwoColumnsPrimary>, never>;
+export type TextSliceTwoColumns = prismicT.SharedSliceVariation<
+    "twoColumns",
+    Simplify<TextSliceTwoColumnsPrimary>,
+    never
+>;
 /**
  * Slice variation for *Text*
  *
@@ -497,7 +548,11 @@ interface TextWithImageSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextWithImageSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TextWithImageSliceDefaultPrimary>, never>;
+export type TextWithImageSliceDefault = prismicT.SharedSliceVariation<
+    "default",
+    Simplify<TextWithImageSliceDefaultPrimary>,
+    never
+>;
 /**
  * Primary content in TextWithImage → Primary
  *
@@ -552,12 +607,18 @@ interface TextWithImageSliceWithButtonPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextWithImageSliceWithButton = prismicT.SharedSliceVariation<"withButton", Simplify<TextWithImageSliceWithButtonPrimary>, never>;
+export type TextWithImageSliceWithButton = prismicT.SharedSliceVariation<
+    "withButton",
+    Simplify<TextWithImageSliceWithButtonPrimary>,
+    never
+>;
 /**
  * Slice variation for *TextWithImage*
  *
  */
-type TextWithImageSliceVariation = TextWithImageSliceDefault | TextWithImageSliceWithButton;
+type TextWithImageSliceVariation =
+    | TextWithImageSliceDefault
+    | TextWithImageSliceWithButton;
 /**
  * TextWithImage Shared Slice
  *
@@ -566,9 +627,15 @@ type TextWithImageSliceVariation = TextWithImageSliceDefault | TextWithImageSlic
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type TextWithImageSlice = prismicT.SharedSlice<"text_with_image", TextWithImageSliceVariation>;
+export type TextWithImageSlice = prismicT.SharedSlice<
+    "text_with_image",
+    TextWithImageSliceVariation
+>;
 declare module "@prismicio/client" {
     interface CreateClient {
-        (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
+        (
+            repositoryNameOrEndpoint: string,
+            options?: prismic.ClientConfig,
+        ): prismic.Client<AllDocumentTypes>;
     }
 }

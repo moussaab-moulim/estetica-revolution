@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { SliceZone } from "@prismicio/react";
+import * as prismicH from "@prismicio/helpers";
 
-import { createClient } from "../prismicio";
-import { components } from "../slices/";
-import { Layout } from "../components/Layout";
-import { mapPageSeo } from "../utils/mappers.ts";
-
-const Index = ({ page, navigation, settings, instagramFeed }) => {
+import { components } from "../../slices";
+import { Layout } from "../../components/Layout";
+import { mapPageSeo } from "../../utils/mappers.ts";
+import { createClient } from "../../prismicio";
+const Page = ({ page, navigation, settings, instagramFeed }) => {
     return (
         <Layout
             navigation={navigation}
@@ -18,12 +18,12 @@ const Index = ({ page, navigation, settings, instagramFeed }) => {
     );
 };
 
-export default Index;
+export default Page;
 
-export async function getStaticProps({ locale, previewData }) {
+export async function getStaticProps({ params, locale, previewData }) {
     const client = createClient({ previewData });
 
-    const page = await client.getByUID("page", "home", { lang: locale });
+    const page = await client.getByUID("post", params.uid, { lang: locale });
     const navigation = await client.getSingle("navigation", { lang: locale });
     const settings = await client.getSingle("settings", { lang: locale });
 
@@ -55,5 +55,21 @@ export async function getStaticProps({ locale, previewData }) {
             settings,
             instagramFeed,
         },
+    };
+}
+
+export async function getStaticPaths() {
+    const client = createClient();
+
+    const pages = await client.getAllByType("post", { lang: "*" });
+
+    return {
+        paths: pages.map((page) => {
+            return {
+                params: { uid: page.uid },
+                locale: page.lang,
+            };
+        }),
+        fallback: false,
     };
 }

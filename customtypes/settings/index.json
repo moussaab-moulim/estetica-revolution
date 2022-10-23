@@ -1,146 +1,146 @@
 {
-  "id": "settings",
-  "label": "Settings",
-  "repeatable": false,
-  "status": true,
-  "json": {
-    "Main": {
-      "site_name": {
-        "type": "Text",
-        "config": {
-          "label": "site name",
-          "placeholder": ""
-        }
-      },
-      "search_console_key": {
-        "type": "Text",
-        "config": {
-          "label": "search console key",
-          "placeholder": ""
-        }
-      },
-      "theme_color": {
-        "type": "Color",
-        "config": {
-          "label": "theme color",
-          "placeholder": ""
-        }
-      },
-      "logo": {
-        "type": "Image",
-        "config": {
-          "label": "logo",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "logo_invert": {
-        "type": "Image",
-        "config": {
-          "label": "logo invert",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "favico": {
-        "type": "Image",
-        "config": {
-          "label": "favico",
-          "constraint": {
-            "width": 16,
-            "height": 16
-          },
-          "thumbnails": [
-            {
-              "name": "md",
-              "width": 32,
-              "height": 32
+    "id": "settings",
+    "label": "Settings",
+    "repeatable": false,
+    "status": true,
+    "json": {
+        "Main": {
+            "site_name": {
+                "type": "Text",
+                "config": {
+                    "label": "site name",
+                    "placeholder": ""
+                }
             },
-            {
-              "name": "lg",
-              "width": 180,
-              "height": 180
-            }
-          ]
-        }
-      },
-      "domain": {
-        "type": "Text",
-        "config": {
-          "label": "domain",
-          "placeholder": ""
-        }
-      },
-      "instagram_api": {
-        "type": "Text",
-        "config": {
-          "label": "instagram_api",
-          "placeholder": ""
-        }
-      },
-      "email_server_login": {
-        "type": "Text",
-        "config": {
-          "label": "email_server_login",
-          "placeholder": ""
-        }
-      },
-      "email_server_password": {
-        "type": "Text",
-        "config": {
-          "label": "email_server_password",
-          "placeholder": ""
-        }
-      }
-    },
-    "Contact": {
-      "social_media": {
-        "type": "Group",
-        "config": {
-          "label": "social media",
-          "fields": {
-            "icon": {
-              "type": "Text",
-              "config": {
-                "label": "icon",
-                "placeholder": ""
-              }
+            "search_console_key": {
+                "type": "Text",
+                "config": {
+                    "label": "search console key",
+                    "placeholder": ""
+                }
             },
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "link",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "select": null
-              }
+            "theme_color": {
+                "type": "Color",
+                "config": {
+                    "label": "theme color",
+                    "placeholder": ""
+                }
+            },
+            "logo": {
+                "type": "Image",
+                "config": {
+                    "label": "logo",
+                    "constraint": {},
+                    "thumbnails": []
+                }
+            },
+            "logo_invert": {
+                "type": "Image",
+                "config": {
+                    "label": "logo invert",
+                    "constraint": {},
+                    "thumbnails": []
+                }
+            },
+            "favico": {
+                "type": "Image",
+                "config": {
+                    "label": "favico",
+                    "constraint": {
+                        "width": 16,
+                        "height": 16
+                    },
+                    "thumbnails": [
+                        {
+                            "name": "md",
+                            "width": 32,
+                            "height": 32
+                        },
+                        {
+                            "name": "lg",
+                            "width": 180,
+                            "height": 180
+                        }
+                    ]
+                }
+            },
+            "domain": {
+                "type": "Text",
+                "config": {
+                    "label": "domain",
+                    "placeholder": ""
+                }
+            },
+            "instagram_api": {
+                "type": "Text",
+                "config": {
+                    "label": "instagram_api",
+                    "placeholder": ""
+                }
+            },
+            "email_server_login": {
+                "type": "Text",
+                "config": {
+                    "label": "email_server_login",
+                    "placeholder": ""
+                }
+            },
+            "email_server_password": {
+                "type": "Text",
+                "config": {
+                    "label": "email_server_password",
+                    "placeholder": ""
+                }
             }
-          }
+        },
+        "Contact": {
+            "social_media": {
+                "type": "Group",
+                "config": {
+                    "label": "social media",
+                    "fields": {
+                        "icon": {
+                            "type": "Text",
+                            "config": {
+                                "label": "icon",
+                                "placeholder": ""
+                            }
+                        },
+                        "link": {
+                            "type": "Link",
+                            "config": {
+                                "label": "link",
+                                "placeholder": "",
+                                "allowTargetBlank": true,
+                                "select": null
+                            }
+                        }
+                    }
+                }
+            },
+            "contact_content": {
+                "type": "StructuredText",
+                "config": {
+                    "label": "contact_content",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+            },
+            "contact_from": {
+                "type": "Text",
+                "config": {
+                    "label": "contact_from",
+                    "placeholder": ""
+                }
+            },
+            "contact_to": {
+                "type": "Text",
+                "config": {
+                    "label": "contact_to",
+                    "placeholder": ""
+                }
+            }
         }
-      },
-      "contact_content": {
-        "type": "StructuredText",
-        "config": {
-          "label": "contact_content",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "contact_from": {
-        "type": "Text",
-        "config": {
-          "label": "contact_from",
-          "placeholder": ""
-        }
-      },
-      "contact_to": {
-        "type": "Text",
-        "config": {
-          "label": "contact_to",
-          "placeholder": ""
-        }
-      }
     }
-  }
 }

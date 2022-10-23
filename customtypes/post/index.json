@@ -1,6 +1,6 @@
 {
-    "id": "page",
-    "label": "Page",
+    "id": "post",
+    "label": "Post",
     "repeatable": true,
     "status": true,
     "json": {
@@ -41,15 +41,6 @@
                     "placeholder": ""
                 }
             },
-            "activate_reviews": {
-                "type": "Boolean",
-                "config": {
-                    "label": "activate reviews",
-                    "placeholder_false": "false",
-                    "placeholder_true": "true",
-                    "default_value": false
-                }
-            },
             "slices": {
                 "type": "Slices",
                 "fieldset": "Slice Zone",
@@ -58,34 +49,7 @@
                         "hero": {
                             "type": "SharedSlice"
                         },
-                        "quote": {
-                            "type": "SharedSlice"
-                        },
                         "text": {
-                            "type": "SharedSlice"
-                        },
-                        "image": {
-                            "type": "SharedSlice"
-                        },
-                        "image_cards": {
-                            "type": "SharedSlice"
-                        },
-                        "text_with_image": {
-                            "type": "SharedSlice"
-                        },
-                        "counter": {
-                            "type": "SharedSlice"
-                        },
-                        "bmi_calculator": {
-                            "type": "SharedSlice"
-                        },
-                        "pricing_packages": {
-                            "type": "SharedSlice"
-                        },
-                        "gallery": {
-                            "type": "SharedSlice"
-                        },
-                        "reviews": {
                             "type": "SharedSlice"
                         }
                     }

@@ -1,7 +1,7 @@
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 export const useResponsive = (inView) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isDesktop = !isMobile;
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isDesktop = !isMobile;
 
-  return { isMobile, isDesktop };
+    return { isMobile, isDesktop };
 };
