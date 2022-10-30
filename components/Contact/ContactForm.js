@@ -129,8 +129,11 @@ function ContactForm() {
                     </div>
 
                     <div className="clearfix form-group basis-full text-center md:px-2">
-                        {Object.values(errors).map((_error) => (
-                            <span className="font-poppins text-red-600">
+                        {Object.values(errors).map((_error, ind) => (
+                            <span
+                                key={ind}
+                                className="font-poppins text-red-600"
+                            >
                                 {_error.message} <br />
                             </span>
                         ))}

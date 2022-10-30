@@ -43,7 +43,7 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                             {/* Big Column */}
                             <div className="big-column col-lg-6 col-md-12 col-sm-12 basis-full px-[15px] lg:basis-1/3 ">
                                 {/*Footer Column*/}
-                                <div className="footer-widget logo-widget">
+                                <div className="footer-widget logo-widget flex flex-col items-center justify-center sm:items-start">
                                     {prismicH.isFilled.image(logo) && (
                                         <div className="logo !w-[42px] md:!w-[60px]">
                                             <PrismicLink
@@ -62,7 +62,7 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                                     )}
                                     {/* Footer Mobile Logo */}
                                     {prismicH.isFilled.image(logo) && (
-                                        <div className="footer-mobile-logo">
+                                        <div className="footer-mobile-logo !w-[80px]">
                                             <PrismicLink
                                                 href="/"
                                                 className="block text-xl font-semibold tracking-tight"

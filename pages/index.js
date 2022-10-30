@@ -20,8 +20,8 @@ const Index = ({ page, navigation, settings, instagramFeed }) => {
 
 export default Index;
 
-export async function getStaticProps({ locale, previewData }) {
-    const client = createClient({ previewData });
+export async function getStaticProps({ locale }) {
+    const client = createClient({});
 
     const page = await client.getByUID("page", "home", { lang: locale });
     const navigation = await client.getSingle("navigation", { lang: locale });

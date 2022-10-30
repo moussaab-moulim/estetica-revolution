@@ -6686,6 +6686,10 @@ img {
 .error-section .content {
     position: relative;
     text-align: center;
+    color: #000000;
+    p{
+        margin: 20px;
+    }
 }
 
 .error-section h1 {

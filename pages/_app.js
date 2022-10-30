@@ -4,7 +4,6 @@ import {
     PrismicProvider,
     PrismicRichText,
 } from "@prismicio/react";
-import { PrismicPreview } from "@prismicio/next";
 
 import { repositoryName, linkResolver } from "../prismicio";
 import { Heading } from "../components/Heading";
@@ -79,22 +78,20 @@ export default function App({ Component, pageProps }) {
             internalLinkComponent={NextLinkShim}
             richTextComponents={richTextComponents}
         >
-            <PrismicPreview repositoryName={repositoryName}>
-                <ContactPopupProvider>
-                    <Component {...pageProps} />
-                    <ToastContainer
-                        position="bottom-center"
-                        autoClose={2000}
-                        hideProgressBar={false}
-                        newestOnTop={false}
-                        closeOnClick
-                        rtl={false}
-                        pauseOnFocusLoss
-                        pauseOnHover
-                        theme="colored"
-                    />
-                </ContactPopupProvider>
-            </PrismicPreview>
+            <ContactPopupProvider>
+                <Component {...pageProps} />
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    pauseOnHover
+                    theme="colored"
+                />
+            </ContactPopupProvider>
         </PrismicProvider>
     );
 }
