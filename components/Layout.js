@@ -6,6 +6,11 @@ import React, { Fragment } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
+import dynamic from "next/dynamic";
+const DynamicFooter = dynamic(() =>
+    import("./Footer").then((mod) => mod.Footer),
+);
+const DynamicContactPopup = dynamic(() => import("./Contact/ContactPopup"));
 export const Layout = ({ navigation, settings, instagramFeed, children }) => {
     return (
         <div className="bg-black text-white">
@@ -146,8 +151,8 @@ export const Layout = ({ navigation, settings, instagramFeed, children }) => {
                     </section>
                 </Fragment>
             </main>
-            <ContactPopup />
-            <Footer
+            <DynamicContactPopup />
+            <DynamicFooter
                 logo={settings.logo}
                 contactDetails={settings.contact_content}
                 instagramFeed={instagramFeed}
