@@ -14,3 +14,6 @@ export const groupBy = <T, K extends keyof any>(
     });
     return map;
 };
+
+export const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
+export const GOOGLE_SEARCH_ID = process.env.NEXT_PUBLIC_SEARCH_CONSOLE;

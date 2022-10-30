@@ -7,6 +7,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 import dynamic from "next/dynamic";
+import { GOOGLE_SEARCH_ID } from "../utils/helper.ts";
 const DynamicFooter = dynamic(() =>
     import("./Footer").then((mod) => mod.Footer),
 );
@@ -68,7 +69,7 @@ export const Layout = ({ navigation, settings, instagramFeed, children }) => {
                     },
                     {
                         name: "google-site-verification",
-                        content: settings.search_console_key,
+                        content: GOOGLE_SEARCH_ID,
                     },
                 ]}
                 additionalLinkTags={[
