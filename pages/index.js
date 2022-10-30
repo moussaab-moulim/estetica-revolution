@@ -27,9 +27,9 @@ export async function getStaticProps({ locale }) {
     const navigation = await client.getSingle("navigation", { lang: locale });
     const settings = await client.getSingle("settings", { lang: locale });
 
-    const instagramData = (
-        await (await fetch(`${process.env.INSTAGRAM_API}?limit=9`)).json()
-    ).data;
+    const instagramData =
+        (await (await fetch(`${process.env.INSTAGRAM_API}?limit=9`)).json())
+            .data ?? [];
 
     const instagramFeed = instagramData
         .map((image) => {

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://esteticarevolution.com
+
+# Sitemaps
+Sitemap: https://esteticarevolution.com/sitemap.xml

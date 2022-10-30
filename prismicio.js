@@ -18,8 +18,12 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 export const linkResolver = (doc) => {
     const lang = doc.lang === "fr" ? "" : `/${doc.lang}`;
     let url = `${lang}/${doc.uid}`;
-    if (doc.url === "/home") {
-        url = "/";
+    if (doc.uid === "home") {
+        url = "";
+        return url;
+    }
+    if (doc.type === "page") {
+        url = `${lang}/${doc.uid}`;
         return url;
     }
     if (doc.type === "post") {
@@ -44,6 +48,7 @@ export const createClient = (config = {}) => {
     const client = prismic.createClient(sm.apiEndpoint, {
         routes: [
             { type: "page", path: "/:uid" },
+            { type: "post", path: "/blog/:uid" },
             { type: "settings", path: "/" },
             { type: "navigation", path: "/" },
         ],
