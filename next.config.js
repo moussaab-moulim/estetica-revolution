@@ -8,8 +8,12 @@ const nextConfig = async () => {
         reactStrictMode: true,
         basePath: "",
         images: {
-            formats: ["image/webp"],
-            domains: ["images.prismic.io", "scontent.cdninstagram.com"],
+            formats: ["image/webp", "image/avif"],
+            domains: [
+                "images.prismic.io",
+                "scontent.cdninstagram.com",
+                "estetica-revolution.cdn.prismic.io",
+            ],
             // next/image support `srcSet` using the below deviceSizes
             // for more info, visit https://nextjs.org/docs/basic-features/image-optimization#device-sizes
             deviceSizes: [

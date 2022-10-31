@@ -2,11 +2,11 @@ import React from "react";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { AutoContainer } from "../../components/Containers";
 import { Heading, SectionTitle } from "../../components/Heading";
-import { PrismicNextImage } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
 import clsx from "clsx";
 import { css } from "@emotion/css";
 import CustomButton from "../../components/CustomButton";
+import Image from "next/image";
 const listComponent = {
     list: ({ children }) => <ul className="price-list">{children}</ul>,
     listItem: ({ children }) => <li className="">{children}</li>,
@@ -48,10 +48,12 @@ const PricingPackages = ({ slice }) => (
                         >
                             <div className="icon-box">
                                 <span className="icon">
-                                    <PrismicNextImage
-                                        field={item.icon}
+                                    <Image
+                                        src={item.icon.url}
+                                        alt={item.icon.alt}
                                         layout="fixed"
                                         height={70}
+                                        width={70}
                                     />
                                     <Heading as="h3" className="text-[22px]">
                                         <PrismicText field={item.title} />

@@ -1,11 +1,11 @@
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { Bounded } from "./Bounded";
-import { PrismicNextImage } from "@prismicio/next";
+
 import { useMemo } from "react";
 import { Fragment, useState } from "react";
 import * as Icon from "react-icons/fa";
+import Image from "next/image";
 export const Header = ({ navigation, logo, site_name, social_media }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -38,8 +38,9 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                 href="/"
                 className="block text-xl font-semibold tracking-tight"
             >
-                <PrismicNextImage
-                    field={logo}
+                <Image
+                    src={logo.url}
+                    alt={logo.alt}
                     width={38.87}
                     height={46}
                     layout="responsive"

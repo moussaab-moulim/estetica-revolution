@@ -1,6 +1,5 @@
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
 
 import { Bounded } from "../../components/Bounded";
 import { Heading, SectionTitle } from "../../components/Heading";
@@ -11,6 +10,7 @@ import React from "react";
 import { css } from "@emotion/css";
 import clsx from "clsx";
 import { AutoContainer } from "../../components/Containers";
+import Image from "next/image";
 
 const ImageCard = ({ item, parenSize }) => {
     const image = item.image;
@@ -25,7 +25,13 @@ const ImageCard = ({ item, parenSize }) => {
         >
             <div className="inner-box">
                 <div className="image">
-                    <PrismicNextImage field={image} layout="responsive" />
+                    <Image
+                        src={image.url}
+                        alt={image.alt}
+                        layout="responsive"
+                        width={480}
+                        height={703}
+                    />
                     {/* Overlay Box */}
                     <div className="overlay-box">
                         <CustomLink
@@ -85,7 +91,13 @@ const ImageCardNotext = ({ item }) => {
                             z-index: 2;
                         `}
                     />
-                    <PrismicNextImage field={image} layout="responsive" />
+                    <Image
+                        width={480}
+                        height={703}
+                        src={image.url}
+                        alt={image.alt}
+                        layout="responsive"
+                    />
 
                     <div
                         className={clsx(

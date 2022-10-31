@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
-import { PrismicNextImage } from "@prismicio/next";
+
 import clsx from "clsx";
+import Image from "next/image";
 import React, { useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
@@ -45,7 +46,13 @@ const Gallery = ({ slice }) => {
                             <div key={index} className="gallery-block">
                                 <div className="inner-box">
                                     <div className="image">
-                                        <PrismicNextImage field={_item.image} />
+                                        <Image
+                                            src={_item.image.url}
+                                            alt={_item.image.url}
+                                            layout="responsive"
+                                            width={200}
+                                            height={200}
+                                        />
                                         <div
                                             className="overlay-link"
                                             onClick={() => openLightbox(index)}

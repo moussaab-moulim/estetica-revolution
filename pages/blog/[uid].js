@@ -96,12 +96,7 @@ export async function getStaticPaths() {
     const pages = await client.getAllByType("post", { lang: "*" });
 
     return {
-        paths: pages.map((page) => {
-            return {
-                params: { uid: page.uid },
-                locale: page.lang,
-            };
-        }),
+        paths: pages.map((page) => linkResolver(page)),
         fallback: false,
     };
 }

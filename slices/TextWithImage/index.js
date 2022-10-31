@@ -1,12 +1,12 @@
 import * as prismicH from "@prismicio/helpers";
 import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
 
 import { Bounded } from "../../components/Bounded";
 import { AutoContainer } from "../../components/Containers";
 import { Heading } from "../../components/Heading";
 import clsx from "clsx";
 import { css } from "@emotion/css";
+import Image from "next/image";
 const textComponent = {
     heading2: ({ children, text, ...other }) => (
         <Heading
@@ -59,9 +59,12 @@ const TextWithImage = ({ slice }) => {
                                     components={textComponent}
                                 />
                                 <div className="image pb-3 md:hidden">
-                                    <PrismicNextImage
-                                        field={image}
+                                    <Image
+                                        src={image.url}
+                                        alt={image.alt}
                                         layout="responsive"
+                                        width={1000}
+                                        height={1200}
                                     />
                                 </div>
                                 <PrismicRichText field={slice.primary.text} />
@@ -69,9 +72,12 @@ const TextWithImage = ({ slice }) => {
                             {/* Column */}
                             <div className="flex basis-full flex-col px-[15px] md:basis-1/2">
                                 <div className="image hidden md:block">
-                                    <PrismicNextImage
-                                        field={image}
+                                    <Image
+                                        src={image.url}
+                                        alt={image.alt}
                                         layout="responsive"
+                                        width={1000}
+                                        height={1200}
                                     />
                                 </div>
                             </div>

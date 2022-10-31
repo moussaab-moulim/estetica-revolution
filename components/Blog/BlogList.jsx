@@ -1,5 +1,5 @@
-import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
@@ -39,8 +39,9 @@ export const BlogList = ({ posts }) => {
                                     </Link>
 
                                     <div className="image">
-                                        <PrismicNextImage
-                                            field={post.data.featured_image}
+                                        <Image
+                                            src={post.data.featured_image.url}
+                                            alt={post.data.featured_image.alt}
                                             layout="responsive"
                                             width={856}
                                             height={822}

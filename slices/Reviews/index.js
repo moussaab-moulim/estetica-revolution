@@ -8,8 +8,8 @@ import Carousel from "nuka-carousel";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { PrismicNextImage } from "@prismicio/next";
 import { useResponsive } from "../../utils/hooks/responsive";
+import Image from "next/image";
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -112,9 +112,12 @@ const Reviews = ({ slice }) => {
                             {slice.items.map((_item, key) => (
                                 <div key={"key-" + key} className="thumb-item">
                                     <figure className="thumb-box">
-                                        <PrismicNextImage
-                                            field={_item.image}
+                                        <Image
+                                            src={_item.image.url}
+                                            alt={_item.image.alt}
                                             layout="responsive"
+                                            width={140}
+                                            height={140}
                                         />
                                     </figure>
                                 </div>

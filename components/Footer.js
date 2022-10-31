@@ -1,8 +1,6 @@
 import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { Bounded } from "./Bounded";
-import { PrismicNextImage } from "@prismicio/next";
+
 import { useMemo } from "react";
 import { Fragment, useState } from "react";
 import { AutoContainer } from "./Containers";
@@ -50,7 +48,9 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                                                 href="/"
                                                 className="block text-xl font-semibold tracking-tight"
                                             >
-                                                <PrismicNextImage
+                                                <Image
+                                                    src={logo.url}
+                                                    alt={logo.alt}
                                                     field={logo}
                                                     width={38.87}
                                                     height={46}
@@ -67,8 +67,9 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                                                 href="/"
                                                 className="block text-xl font-semibold tracking-tight"
                                             >
-                                                <PrismicNextImage
-                                                    field={logo}
+                                                <Image
+                                                    src={logo.url}
+                                                    alt={logo.alt}
                                                     width={38.87}
                                                     height={46}
                                                     layout="responsive"

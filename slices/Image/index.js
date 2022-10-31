@@ -1,6 +1,6 @@
 import * as prismicH from "@prismicio/helpers";
-import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
+import NextImage from "next/image";
 
 import { Bounded } from "../../components/Bounded";
 
@@ -14,7 +14,11 @@ const Image = ({ slice, index }) => {
         >
             {prismicH.isFilled.image(image) && (
                 <div className="bg-gray-100">
-                    <PrismicNextImage field={image} layout="responsive" />
+                    <NextImage
+                        src={image.url}
+                        alt={image.alt}
+                        layout="responsive"
+                    />
                 </div>
             )}
         </Bounded>
