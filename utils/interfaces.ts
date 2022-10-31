@@ -18,4 +18,5 @@ export interface PageSeo {
     type: string;
     social_media: any;
     contact_content: string;
+    footer_background: ImageField;
 }

@@ -18,4 +18,5 @@ export const mapPageSeo = (page, settings): PageSeo => ({
     locale: page.lang,
     social_media: settings.data.social_media,
     contact_content: settings.data.contact_content ?? "",
+    footer_background: settings.data.footer_background,
 });

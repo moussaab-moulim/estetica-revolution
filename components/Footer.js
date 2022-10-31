@@ -7,6 +7,9 @@ import { AutoContainer } from "./Containers";
 import ContactForm from "./Contact/ContactForm";
 import Link from "next/link";
 import Image from "next/image";
+import { Background } from "./Background";
+import clsx from "clsx";
+import { css } from "@emotion/css";
 const shimmer = (w, h) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -24,16 +27,20 @@ const toBase64 = (str) =>
     typeof window === "undefined"
         ? Buffer.from(str).toString("base64")
         : window.btoa(str);
-export const Footer = ({ logo, instagramFeed, contactDetails }) => {
+export const Footer = ({
+    logo,
+    instagramFeed,
+    contactDetails,
+    backgroundImage,
+}) => {
     return (
         <Fragment>
-            <footer
-                className="main-footer"
-                style={{
-                    backgroundImage:
-                        "url(http://blackfit.getmytemplate.com/images/background/2.jpg)",
-                }}
-            >
+            <footer className={clsx("main-footer z-0 overflow-hidden", css``)}>
+                <Background
+                    field={backgroundImage}
+                    objectFit="contain"
+                    objectPosition="right"
+                />
                 <AutoContainer>
                     {/* Widgets Section */}
                     <div className="widgets-section">
@@ -51,7 +58,6 @@ export const Footer = ({ logo, instagramFeed, contactDetails }) => {
                                                 <Image
                                                     src={logo.url}
                                                     alt={logo.alt}
-                                                    field={logo}
                                                     width={38.87}
                                                     height={46}
                                                     layout="responsive"

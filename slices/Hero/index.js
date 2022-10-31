@@ -11,6 +11,7 @@ import { linkResolver } from "../../prismicio";
 import CustomButton from "../../components/CustomButton";
 import { AutoContainer } from "../../components/Containers";
 import { useRouter } from "next/router";
+import { Background } from "../../components/Background";
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -23,8 +24,9 @@ const Hero = ({ slice }) => {
         return (
             <section
                 className="page-title"
-                style={{ backgroundImage: `url(${backgroundImage.url})` }}
+                style={{ overflow: "hidden", zIndex: 0 }}
             >
+                <Background field={backgroundImage} />
                 <AutoContainer
                     className={css`
                         @media only screen and (min-width: 600px) {
@@ -42,7 +44,7 @@ const Hero = ({ slice }) => {
     return (
         <section
             className={clsx(
-                "banner-section",
+                "banner-section z-0 overflow-hidden",
                 css`
                     position: relative;
                     padding-top: 300px;
@@ -60,10 +62,7 @@ const Hero = ({ slice }) => {
             )}
         >
             {router.route !== "/" ? (
-                <div
-                    className="image-layer"
-                    style={{ backgroundImage: `url(${backgroundImage.url})` }}
-                />
+                <Background field={backgroundImage} />
             ) : (
                 <div
                     className={clsx(

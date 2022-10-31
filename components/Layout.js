@@ -157,6 +157,7 @@ export const Layout = ({ navigation, settings, instagramFeed, children }) => {
                 logo={settings.logo}
                 contactDetails={settings.contact_content}
                 instagramFeed={instagramFeed}
+                backgroundImage={settings.footer_background}
             />
         </div>
     );

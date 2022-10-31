@@ -11,9 +11,9 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "site_name": "foot",
-    "search_console_key": "married",
-    "theme_color": "#7fcdcf",
+    "site_name": "around",
+    "search_console_key": "scene",
+    "theme_color": "#586290",
     "logo": {
       "dimensions": {
         "width": 900,
@@ -21,7 +21,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a"
+      "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab"
     },
     "logo_invert": {
       "dimensions": {
@@ -30,7 +30,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a"
+      "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
     },
     "favico": {
       "dimensions": {
@@ -39,7 +39,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+      "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
       "md": {
         "dimensions": {
           "width": 32,
@@ -47,7 +47,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e"
+        "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
       },
       "lg": {
         "dimensions": {
@@ -56,30 +56,39 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869"
+        "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6"
       }
     },
-    "domain": "nine",
-    "instagram_api": "ago",
-    "email_server_login": "thy",
-    "email_server_password": "including",
+    "domain": "orange",
+    "instagram_api": "sheet",
+    "email_server_login": "energy",
+    "email_server_password": "grandfather",
     "social_media": [
       {
-        "icon": "alone",
+        "icon": "building",
         "link": {
           "link_type": "Web",
-          "url": "https://slicemachine.dev"
+          "url": "http://google.com"
         }
       }
     ],
     "contact_content": [
       {
         "type": "paragraph",
-        "text": "Aute reprehenderit occaecat labore cillum irure nostrud magna minim fugiat anim. Consequat commodo adipisicing mollit in amet nostrud veniam nulla deserunt velit enim sint ipsum. Est dolor non esse est dolore.",
+        "text": "Aliqua anim ad Lorem. Adipisicing tempor sint et do Lorem officia magna duis.",
         "spans": []
       }
     ],
-    "contact_from": "chicken",
-    "contact_to": "thread"
+    "contact_from": "about",
+    "contact_to": "face",
+    "footer_background": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0"
+    }
   }
 }
