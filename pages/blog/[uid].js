@@ -5,7 +5,7 @@ import * as prismicH from "@prismicio/helpers";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { mapPageSeo } from "../../utils/mappers.ts";
-import { createClient } from "../../prismicio";
+import { createClient, linkResolver } from "../../prismicio";
 import { AutoContainer } from "../../components/Containers";
 import { css } from "@emotion/css";
 const Page = ({ page, navigation, settings, instagramFeed }) => {
