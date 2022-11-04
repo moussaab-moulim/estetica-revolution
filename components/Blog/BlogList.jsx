@@ -31,7 +31,7 @@ export const BlogList = ({ posts }) => {
                         return (
                             <div
                                 key={index}
-                                className="news-block  basis:full px-[15px] md:basis-1/2"
+                                className="news-block  basis-full px-[15px] md:basis-1/2"
                             >
                                 <div className="inner-box">
                                     <Link href={linkResolver(post)}>
@@ -127,7 +127,7 @@ export const BlogListLoader = () => {
                         return (
                             <div
                                 key={index}
-                                className="basis:full px-[15px] md:basis-1/2"
+                                className="basis-full px-[15px] md:basis-1/2"
                             >
                                 <Loader key={index} type="thumbnail" />
                             </div>
