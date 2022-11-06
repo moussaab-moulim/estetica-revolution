@@ -18,7 +18,6 @@ const contactFunction = async (req, res) => {
         const mailSendResp = await transporter.sendMail(req.body);
         res.status(200).json(mailSendResp);
     } catch (error) {
-        console.log("err", error);
         res.status(500).json(error);
     }
 };

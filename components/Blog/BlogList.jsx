@@ -13,8 +13,6 @@ import { AutoContainer } from "../Containers";
 import { Loader } from "../Loader";
 
 export const BlogList = ({ posts }) => {
-    console.log("posts", posts);
-
     return (
         <section className="blog-post-section">
             <AutoContainer>

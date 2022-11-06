@@ -9,17 +9,11 @@ import sm from "./sm.json";
  */
 export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 
-/**
- * The project's Prismic Link Resolver. This function determines the URL for a
- * given Prismic document.
- *
- * @type {prismicH.LinkResolverFunction}
- */
 export const linkResolver = (doc) => {
     const lang = doc.lang === "fr" ? "" : `/${doc.lang}`;
     let url = `${lang}/${doc.uid}`;
     if (doc.uid === "home") {
-        url = "";
+        url = "/";
         return url;
     }
     if (doc.type === "page") {
@@ -30,13 +24,14 @@ export const linkResolver = (doc) => {
         url = `${lang}/blog/${doc.uid}`;
         return url;
     }
+
     return url;
 };
 
-export const webLinkResolver = (doc) => {
-    if (doc.url.includes("https://action:")) return "";
-    if (doc.url.includes("#")) return doc.url.replace("https://", "");
-    return doc.url;
+export const webLinkResolver = (url) => {
+    if (url.includes("https://action:")) return "";
+    if (url.includes("https://#")) return url.replace("https://", "");
+    return url;
 };
 /**
  * Creates a Prismic client for the project's repository. The client is used to
@@ -47,6 +42,11 @@ export const webLinkResolver = (doc) => {
 export const createClient = (config = {}) => {
     const client = prismic.createClient(sm.apiEndpoint, {
         routes: [
+            {
+                type: "page",
+                uid: "home",
+                path: "/",
+            },
             { type: "page", path: "/:uid" },
             { type: "post", path: "/blog/:uid" },
             { type: "settings", path: "/" },

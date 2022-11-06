@@ -6,7 +6,8 @@ import { useMemo } from "react";
 import { Fragment, useState } from "react";
 import * as Icon from "react-icons/fa";
 import Image from "next/image";
-import { webLinkResolver } from "../prismicio";
+import { linkResolver, webLinkResolver } from "../prismicio";
+import Link from "next/link";
 export const Header = ({ navigation, logo, site_name, social_media }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -165,7 +166,28 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                                                 field={item.link}
                                                 className="relative inline-block cursor-pointer font-momentun text-[20px] font-bold uppercase text-white transition-all duration-300 ease-linear md:text-[30px]"
                                                 onClick={handleMenuClose}
-                                                linkResolver={webLinkResolver}
+                                                linkResolver={linkResolver}
+                                                externalComponent={({
+                                                    href,
+                                                    children,
+                                                    locale,
+                                                    target,
+                                                    ...props
+                                                }) => {
+                                                    return (
+                                                        <Link
+                                                            href={webLinkResolver(
+                                                                href,
+                                                            )}
+                                                            locale={locale}
+                                                            target={target}
+                                                        >
+                                                            <a {...props}>
+                                                                {children}
+                                                            </a>
+                                                        </Link>
+                                                    );
+                                                }}
                                             >
                                                 <PrismicText
                                                     field={item.label}
@@ -216,9 +238,6 @@ export const Header = ({ navigation, logo, site_name, social_media }) => {
                                                                     className="inline-block cursor-pointer font-poppins text-[16px] font-normal capitalize text-[#666666] transition-all duration-300 ease-linear hover:text-white"
                                                                     onClick={
                                                                         handleMenuClose
-                                                                    }
-                                                                    linkResolver={
-                                                                        webLinkResolver
                                                                     }
                                                                 >
                                                                     <PrismicText

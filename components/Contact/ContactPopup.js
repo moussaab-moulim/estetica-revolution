@@ -48,12 +48,6 @@ function ContactPopup() {
     });
     const [step, setStep] = useState(1);
     const onSubmit = async (data) => {
-        console.log(
-            "dqtq",
-            Object.entries(data.objectives)
-                .filter((_ob) => _ob[1] === true)
-                .map((val) => `<li>${val[0]}</li>`),
-        );
         const mailData = {
             from: `estetica revolution <postmaster@esteticarevolution.com>`,
             to: "info@esteticarevolution.com",
@@ -79,7 +73,6 @@ function ContactPopup() {
             </ul>
         </div>`,
         };
-        console.log("mail", mailData.html);
         const contactResposne = await fetch("/api/contact", {
             method: "POST",
             headers: {
@@ -533,13 +526,7 @@ function ContactPopup() {
                                         type="submit"
                                         name="submit-form"
                                     >
-                                        <span className="txt">
-                                            ENVOYER
-                                            {console.log(
-                                                "formState",
-                                                formState.isValid,
-                                            )}
-                                        </span>
+                                        <span className="txt">ENVOYER</span>
                                     </button>
                                 )}
                             </div>
