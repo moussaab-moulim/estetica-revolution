@@ -166,7 +166,7 @@ const ImageCardNotext = ({ item }) => {
                                                 text-transform: uppercase;
                                                 transition: all 900ms ease;
                                             `,
-                                            "text-[24px]",
+                                            "text-[24px] md:text-[20px]",
                                         )}
                                     />
                                 </Heading>
