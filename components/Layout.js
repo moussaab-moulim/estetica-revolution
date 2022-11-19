@@ -7,7 +7,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 import dynamic from "next/dynamic";
-import { GOOGLE_SEARCH_ID } from "../utils/helper.ts";
+import { GOOGLE_SEARCH_ID } from "../utils/helper.js";
 const DynamicFooter = dynamic(() =>
     import("./Footer").then((mod) => mod.Footer),
 );

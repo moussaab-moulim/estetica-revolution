@@ -6,6 +6,7 @@ import { createClient, linkResolver } from "../prismicio";
 import { components } from "../slices";
 import { Layout } from "../components/Layout";
 import { mapPageSeo } from "../utils/mappers.ts";
+import { getInstagramFeed } from "../utils/helper";
 const Page = ({ page, navigation, settings, instagramFeed }) => {
     return (
         <Layout
@@ -26,26 +27,8 @@ export async function getStaticProps({ params, locale }) {
     const page = await client.getByUID("page", params.uid, { lang: locale });
     const navigation = await client.getSingle("navigation", { lang: locale });
     const settings = await client.getSingle("settings", { lang: locale });
-    const instagramData =
-        (await (await fetch(`${process.env.INSTAGRAM_API}?limit=9`)).json())
-            .data ?? [];
 
-    const instagramFeed = instagramData
-        .map((image) => {
-            const url =
-                image.media_type === "VIDEO"
-                    ? image.thumbnail_url
-                    : image.media_url;
-            return {
-                url: url.replace(
-                    url.slice(0, url.indexOf(".")),
-                    "https://scontent",
-                ),
-                alt: "an instagram image form the profile estetica revolution",
-                linkTo: image.permalink,
-            };
-        })
-        .slice(0, 8);
+    const instagramFeed = await getInstagramFeed();
     return {
         props: {
             instagramFeed,
