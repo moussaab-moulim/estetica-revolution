@@ -82,6 +82,7 @@ const Hero = ({ slice }) => {
                         autoPlay
                         loop
                         muted
+                        playsInline
                         className={clsx(
                             "opacity-40",
                             css`

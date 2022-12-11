@@ -21,7 +21,6 @@ const NextLinkShim = ({ href, children, locale, ...props }) => {
         </Link>
     );
 };
-
 const richTextComponents = {
     heading1: ({ children }) => (
         <Heading as="h1" size="xl">
